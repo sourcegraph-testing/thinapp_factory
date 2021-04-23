@@ -40,7 +40,7 @@ import com.vmware.vim25.mo.InventoryNavigator;
 import com.vmware.vim25.mo.ServiceInstance;
 
 import akka.actor.Scheduler;
-import akka.actor.TypedActor;
+import akka.actor.typed;
 import akka.dispatch.DefaultCompletableFuture;
 import akka.dispatch.Future;
 import akka.dispatch.Futures;

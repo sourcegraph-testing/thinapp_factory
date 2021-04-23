@@ -21,7 +21,7 @@ import org.junit.runner.RunWith
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.ContextConfiguration
 import com.vmware.thinapp.workpool.tests.mocks.InstallRunnerMock
-import akka.actor.TypedActor
+import akka.actor.typed
 import org.springframework.beans.factory.annotation.Autowired
 import com.vmware.thinapp.workpool.tests.fixtures.Defaults
 import com.vmware.thinapp.workpool.{Util, VmImageInstance, VmImageInstanceImpl, InstallRequest}
