@@ -39,8 +39,8 @@ import com.vmware.thinapp.workpool.model.VmImageModel;
 import com.vmware.thinapp.workpool.model.VmPatternModel;
 import com.vmware.thinapp.workpool.model.WorkpoolModel;
 
-import akka.actor.TypedActor;
-import akka.actor.TypedActorFactory;
+import akka.actor.typed;
+import akka.actor.typedFactory;
 import akka.dispatch.Dispatchers;
 import akka.dispatch.MessageDispatcher;
 

@@ -42,7 +42,7 @@ import com.vmware.thinapp.workpool.model.VCConfigModel;
 import com.vmware.thinapp.workpool.model.VmLocationModel;
 import com.vmware.thinapp.workpool.model.WorkpoolModel;
 
-import akka.actor.TypedActor;
+import akka.actor.typed;
 import akka.dispatch.Future;
 import scala.Option;
 

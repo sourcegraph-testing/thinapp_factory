@@ -17,7 +17,7 @@
 
 package com.vmware.thinapp.workpool;
 
-import akka.actor.TypedActor;
+import akka.actor.typed;
 import com.google.common.eventbus.EventBus;
 
 /**
