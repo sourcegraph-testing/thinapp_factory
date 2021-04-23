@@ -49,7 +49,7 @@ import com.vmware.thinapp.workpool.model.LeaseModel;
 import com.vmware.thinapp.workpool.model.WorkpoolModel;
 import com.vmware.vim25.mo.ServiceInstance;
 
-import akka.actor.TypedActor;
+import akka.actor.typed;
 import akka.dispatch.CompletableFuture;
 import akka.dispatch.DefaultCompletableFuture;
 import akka.dispatch.Future;
