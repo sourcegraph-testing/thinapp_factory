@@ -42,7 +42,7 @@ import com.vmware.vim25.mo.Task;
 import com.vmware.vim25.mo.VirtualMachine;
 import com.vmware.vim25.mo.VirtualMachineSnapshot;
 
-import akka.actor.TypedActor;
+import akka.actor.typed;
 import akka.dispatch.Future;
 import akka.dispatch.Futures;
 import akka.japi.Procedure;

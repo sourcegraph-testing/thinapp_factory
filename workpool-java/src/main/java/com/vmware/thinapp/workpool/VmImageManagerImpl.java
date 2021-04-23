@@ -35,7 +35,7 @@ import com.vmware.thinapp.common.workpool.dto.DeleteMethod;
 import com.vmware.thinapp.workpool.dao.VmImageRepository;
 import com.vmware.thinapp.workpool.model.VmImageModel;
 
-import akka.actor.TypedActor;
+import akka.actor.typed;
 import akka.dispatch.Future;
 import scala.Option;
 
