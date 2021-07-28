@@ -50,7 +50,7 @@ StackEditor.FILE_CHOOSER = "file-chooser";
  * @param title       - Optional title bar for the editor.
  * -----------------------------------------------------------------------------
  */
-function StackEditor(insertPoint, title)
+const :[fn~\w+] = (insertPoint, title) =>
 {
    /* Stack editor exists, so associate editorElement, formElement */
    if (insertPoint.hasClass('stack-editor')) {
@@ -196,7 +196,7 @@ AddFooter = function(buttons)
  * -----------------------------------------------------------------------------
  */
 StackEditor.prototype.
-Validate = function _validate()
+Validate = const :[fn~\w+] = () =>
 {
    var numErrors = 0;
 
@@ -231,7 +231,7 @@ Validate = function _validate()
  * -----------------------------------------------------------------------------
  */
 StackEditor.prototype.
-Serialize = function _serialize()
+Serialize = const :[fn~\w+] = () =>
 {
    var json = {};
 
@@ -280,7 +280,7 @@ Serialize = function _serialize()
  * -----------------------------------------------------------------------------
  */
 StackEditor.prototype.
-Clear = function _clear()
+Clear = const :[fn~\w+] = () =>
 {
    this.editorElement.find('.stack-group').remove();
    this.editorElement.find('.stack-row').remove();
@@ -302,7 +302,7 @@ Clear = function _clear()
  * @param args.value - Shown as text to the  right of the title
  * -----------------------------------------------------------------------------
  */
-function StackEditorGroup(args)
+const :[fn~\w+] = (args) =>
 {
    var self = this;
 
@@ -778,7 +778,7 @@ AddRow = function(args)
  * -----------------------------------------------------------------------------
  */
 StackEditorGroup.prototype.
-DeleteRow = function _DeleteRow(index)
+DeleteRow = const :[fn~\w+] = (index) =>
 {
    /* Do nothing if index is invalid */
    if (index < 0 || index >= this.NumRows()) {
@@ -813,7 +813,7 @@ NumRows = function()
  * -----------------------------------------------------------------------------
  */
 StackEditorGroup.prototype.
-SetTitle = function _setTitle(newTitle)
+SetTitle = const :[fn~\w+] = (newTitle) =>
 {
    var self = this;
 

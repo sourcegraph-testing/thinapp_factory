@@ -24,7 +24,7 @@
  * build editors (ini editor, registry editor, and file system editor).
  * -----------------------------------------------------------------------------
  */
-function BuildEditor(buildId, buildSettings)
+const :[fn~\w+] = (buildId, buildSettings) =>
 {
    /* Create & populate package.ini editor */
    this.iniEditor = new IniEditor(
@@ -68,7 +68,7 @@ function BuildEditor(buildId, buildSettings)
  * -----------------------------------------------------------------------------
  */
 BuildEditor.prototype.
-Destruct = function _destruct()
+Destruct = const :[fn~\w+] = () =>
 {
    this.iniEditor = null;
    this.regEditor = null;
@@ -85,7 +85,7 @@ Destruct = function _destruct()
  * -----------------------------------------------------------------------------
  */
 BuildEditor.prototype.
-HasChanges = function _hasChanges()
+HasChanges = const :[fn~\w+] = () =>
 {
    return (
          this.iniEditor.HasChanges() ||

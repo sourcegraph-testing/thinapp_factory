@@ -16,7 +16,7 @@
  * ***********************************************************************/
 
 
-function ThinPlugin()
+const :[fn~\w+] = () =>
 {
    /* These methods work for both */
    this.IsInstalled = function() {

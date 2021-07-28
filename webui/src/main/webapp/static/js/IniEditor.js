@@ -46,7 +46,7 @@ IniEditor.HORIZON_KEYS = ['AppID', 'HorizonOrgUrl', 'NotificationDLLs'];
  * }
  * -----------------------------------------------------------------------------
  */
-function IniEditor(iniDataRequest, editorDiv, changeMarker)
+const :[fn~\w+] = (iniDataRequest, editorDiv, changeMarker) =>
 {
    this.iniData = iniDataRequest.packageIni;
    this.hzSupported = iniDataRequest.hzSupported;
@@ -74,7 +74,7 @@ IniEditor.prototype = new AbstractSettingsEditor();
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-GetIniData = function _getIniData()
+GetIniData = const :[fn~\w+] = () =>
 {
    return {
       packageIni: this.iniData,
@@ -96,7 +96,7 @@ GetIniData = function _getIniData()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-Populate = function _populate(iniDataRequest)
+Populate = const :[fn~\w+] = (iniDataRequest) =>
 {
    var self = this;
 
@@ -154,7 +154,7 @@ Populate = function _populate(iniDataRequest)
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-CreateNewSection = function _createNewSection()
+CreateNewSection = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -188,7 +188,7 @@ CreateNewSection = function _createNewSection()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-RuntimeHzSupportedChanged = function _runtimeHzSupportedChanged()
+RuntimeHzSupportedChanged = const :[fn~\w+] = () =>
 {
    /* Just mark changes and re populate. */
    var self = this;
@@ -213,7 +213,7 @@ RuntimeHzSupportedChanged = function _runtimeHzSupportedChanged()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-RenameCurrentSection = function _renameCurrentSection()
+RenameCurrentSection = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -257,7 +257,7 @@ RenameCurrentSection = function _renameCurrentSection()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-DuplicateCurrentSection = function _duplicateCurrentSection()
+DuplicateCurrentSection = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -303,7 +303,7 @@ DuplicateCurrentSection = function _duplicateCurrentSection()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-DeleteCurrentSection = function _deleteCurrentSection()
+DeleteCurrentSection = const :[fn~\w+] = () =>
 {
    /* Get the name of the selected INI section */
    var sectionName = this.sectionSelector.val();
@@ -341,7 +341,7 @@ DeleteCurrentSection = function _deleteCurrentSection()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-CreateNewValue = function _createNewValue()
+CreateNewValue = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -389,9 +389,9 @@ CreateNewValue = function _createNewValue()
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-DeleteValue = function _deleteCurrentValue(
+DeleteValue = const :[fn~\w+] = (
       sectionName,
-      valueName)
+      valueName) =>
 {
    var section = this.iniData[sectionName];
    delete section[valueName];
@@ -416,9 +416,9 @@ DeleteValue = function _deleteCurrentValue(
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-PopulateSection = function _populateSection(
+PopulateSection = const :[fn~\w+] = (
       sectionName,
-      selectInList)
+      selectInList) =>
 {
    var self = this;
 
@@ -525,7 +525,7 @@ PopulateSection = function _populateSection(
  * -----------------------------------------------------------------------------
  */
 IniEditor.prototype.
-extractAllSectionNames = function _extractAllSectionNames(iniData)
+extractAllSectionNames = const :[fn~\w+] = (iniData) =>
 {
    var sectionNames = new Array();
    for (var name in this.iniData) {

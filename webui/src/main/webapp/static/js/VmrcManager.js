@@ -22,7 +22,7 @@
  * class.
  * @returns {VmrcManager}
  */
-function VmrcManager() {
+const :[fn~\w+] = () => {
    // VM State Map
    this.vmStateMap = {
       acquiringVm : { message : "Waiting for VM to become available...", progress : -1 },
@@ -72,8 +72,8 @@ function VmrcManager() {
  *           a VM data store path.
  * @returns {VmrcManager}
  */
-VmrcManager.prototype.Connect = function _Connect(host, username, password,
-      datacenterMoid, vmPath) {
+VmrcManager.prototype.Connect = const :[fn~\w+] = (host, username, password,
+      datacenterMoid, vmPath) => {
    this.setStatus("Connecting to a VM...", 6);
    AfLog("Connection requested for: " + host + "," + username + "," + password
          + "," + datacenterMoid + "," + vmPath);
@@ -89,7 +89,7 @@ VmrcManager.prototype.Connect = function _Connect(host, username, password,
  * Startup VMRC browser plug-in.
  * @returns {VmrcManager}
  */
-VmrcManager.prototype.Startup = function _Startup() {
+VmrcManager.prototype.Startup = const :[fn~\w+] = () => {
    // 1 means embedded and event based logs, respectively.
    AfLog("Starting VmrcManager...");
    this.setStatus("Loading the VMware Remote Console...", 2);
@@ -109,7 +109,7 @@ VmrcManager.prototype.Startup = function _Startup() {
  * Shutdown VMRC client.
  * @returns {VmrcManager}
  */
-VmrcManager.prototype.Shutdown = function _Shutdown() {
+VmrcManager.prototype.Shutdown = const :[fn~\w+] = () => {
    this.setStatus("Starting VMRC client shutdown...");
 
    AfLog("Disconnecting VMRC client.");
@@ -128,7 +128,7 @@ VmrcManager.prototype.Shutdown = function _Shutdown() {
  * Move to a next step of the manual mode flow.
  * @returns {VmrcManager}
  */
-VmrcManager.prototype.Next = function _Next() {
+VmrcManager.prototype.Next = const :[fn~\w+] = () => {
    var next = $("#next")[0];
    var nextStatus = $('#nextStatus').val();
    var ticketId = $('#ticketId').val();
@@ -149,10 +149,10 @@ VmrcManager.prototype.Next = function _Next() {
       this.setStatus('Finished.', 100, true);
    }
    // Check status of the ticket.
-   AfAjaxPostJson(url, null, function success(data, textStatus, jqXHR) {
+   AfAjaxPostJson(url, null, const :[fn~\w+] = (data, textStatus, jqXHR) => {
       AfLog('Successfully moved to the next step.');
       $(next).attr("disabled", "disabled");
-   }, function error(jqXHR, textStatus, errorThrown) {
+   }, const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
       AfLog('Failed to move to the next step!');
    });
    return this;
@@ -162,7 +162,7 @@ VmrcManager.prototype.Next = function _Next() {
  * Run manual mode conversion process. It runs forever until the vm reaches
  * 'INSTALLATION_DONE', 'REFRESHING_PORJECT_DONE', 'CANCELLING' or 'CANCELLED' status.
  */
-VmrcManager.prototype.run = function _run() {
+VmrcManager.prototype.run = const :[fn~\w+] = () => {
    var self = this;
 
    // VM is available.
@@ -191,7 +191,7 @@ VmrcManager.prototype.run = function _run() {
 
    var NEEDS_LOGIN_DONE = "needsLoginDone";
 
-   function checkStatus() {
+   const :[fn~\w+] = () => {
       var ticketId = $('#ticketId').val();
       var appId = $('#appId').val();
       AfLog("TICKET_ID=" + ticketId + ", APP_ID=" + appId);
@@ -209,15 +209,15 @@ VmrcManager.prototype.run = function _run() {
          });
    }
 
-   function disableNextButton() {
+   const :[fn~\w+] = () => {
       $('button:#next').attr('disabled','disabled');
    }
 
-   function enableNextButton() {
+   const :[fn~\w+] = () => {
       $('button:#next').removeAttr('disabled');
    }
 
-   function redeemDone(status) {
+   const :[fn~\w+] = (status) => {
       AfLog(status);
 
       // If the VM is available and we haven't yet used it.
@@ -289,7 +289,7 @@ VmrcManager.prototype.run = function _run() {
  *    If the parameter is not present or is set to false, the loading icon will be displayed.
  * @returns {VmrcManager}
  */
-VmrcManager.prototype.setStatus = function _setStatus(status, progressPercent, wantToHideIcon) {
+VmrcManager.prototype.setStatus = const :[fn~\w+] = (status, progressPercent, wantToHideIcon) => {
    AfLog("Status changed to: " + status + " with progress " + progressPercent);
    if (status) {
       // Spinning icon
@@ -322,7 +322,7 @@ VmrcManager.prototype.setStatus = function _setStatus(status, progressPercent, w
 /**
  * Close the current manual capture window.
  */
-VmrcManager.prototype.Close = function _Close() {
+VmrcManager.prototype.Close = const :[fn~\w+] = () => {
    // Check whether the build is in work-in-progress or not.
    var nextStatus = $('#nextStatus').val();
 
@@ -340,7 +340,7 @@ VmrcManager.prototype.Close = function _Close() {
 /**
  * Cancel the current manual mode build process.
  */
-VmrcManager.prototype.cancel = function _cancel() {
+VmrcManager.prototype.cancel = const :[fn~\w+] = () => {
    var ticketId = $('#ticketId').val();
    var cancelUrl = '/api/manualMode/cancel?ticketId=' + ticketId;
 
@@ -362,7 +362,7 @@ VmrcManager.prototype.cancel = function _cancel() {
  * Destruct VmrcManager object.
  * @returns null.
  */
-VmrcManager.prototype.Destruct = function _destruct()
+VmrcManager.prototype.Destruct = const :[fn~\w+] = () =>
 {
    this.vmStateMap = null;
    this.lease = null;

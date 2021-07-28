@@ -23,7 +23,7 @@
  * A "class" that encapsulates all the methods for dealing with applications.
  * -----------------------------------------------------------------------------
  */
-function AppManager(table, category, appId) {
+const :[fn~\w+] = (table, category, appId) => {
    "use strict";
 
    var tableOpts = new Object();
@@ -776,7 +776,7 @@ function AppManager(table, category, appId) {
     * @param rowNum a current row number of the history datatable.
     */
    AppManager.prototype.
-   deleteBuildRequest = function _deleteBuildRequest(id, rowNum) {
+   deleteBuildRequest = const :[fn~\w+] = (id, rowNum) => {
       var self = this;
       AfAjax({
          method: 'DELETE',
@@ -803,7 +803,7 @@ function AppManager(table, category, appId) {
     * -----------------------------------------------------------------------------
     */
    AppManager.prototype.
-   createBuildRequestRows = function _createBuildRequestRows(self, captures, options)
+   createBuildRequestRows = const :[fn~\w+] = (self, captures, options) =>
    {
       var rows = new Array(captures.length);
 

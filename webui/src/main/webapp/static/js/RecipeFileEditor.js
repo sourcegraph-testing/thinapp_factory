@@ -28,7 +28,7 @@
  */
 RecipeFileEditor.prototype = new AbstractSettingsEditor();
 RecipeFileEditor.prototype.constructor = RecipeFileEditor;
-function RecipeFileEditor(tab, changeMarker)
+const :[fn~\w+] = (tab, changeMarker) =>
 {
    this.changeMarker = changeMarker;
    this.nextUploadFormId = 1000;
@@ -49,7 +49,7 @@ function RecipeFileEditor(tab, changeMarker)
  * -----------------------------------------------------------------------------
  */
 RecipeFileEditor.prototype.
-Serialize = function _serialize()
+Serialize = const :[fn~\w+] = () =>
 {
    var json = this.stackEditor.Serialize();
    return json;
@@ -70,7 +70,7 @@ Serialize = function _serialize()
  * -----------------------------------------------------------------------------
  */
 RecipeFileEditor.prototype.
-PopulateFiles = function _populateFiles(recipe, readOnly)
+PopulateFiles = const :[fn~\w+] = (recipe, readOnly) =>
 {
    var self = this;
 
@@ -123,7 +123,7 @@ PopulateFiles = function _populateFiles(recipe, readOnly)
  * -----------------------------------------------------------------------------
  */
 RecipeFileEditor.prototype.
-AddFileGroup = function _addFileGroup(file)
+AddFileGroup = const :[fn~\w+] = (file) =>
 {
    var self = this;
 
@@ -206,7 +206,7 @@ AddFileGroup = function _addFileGroup(file)
  * -----------------------------------------------------------------------------
  */
 RecipeFileEditor.prototype.
-AddUploadFileGroup = function _addUploadFileGroup(file)
+AddUploadFileGroup = const :[fn~\w+] = (file) =>
 {
    var self = this;
 
@@ -279,7 +279,7 @@ AddUploadFileGroup = function _addUploadFileGroup(file)
  * -----------------------------------------------------------------------------
  */
 RecipeFileEditor.prototype.
-ConfirmDelete = function _confirmDelete()
+ConfirmDelete = const :[fn~\w+] = () =>
 {
    return AfConfirm(
          "Confirm Delete",

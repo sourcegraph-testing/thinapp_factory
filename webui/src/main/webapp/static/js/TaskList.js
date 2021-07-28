@@ -15,7 +15,7 @@
  * limitations under the License.
  * ***********************************************************************/
 
-function TaskList() {
+const :[fn~\w+] = () => {
    // todo: take proper arguments
    "use strict";
    this.init();

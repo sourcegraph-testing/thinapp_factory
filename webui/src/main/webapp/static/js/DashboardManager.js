@@ -22,7 +22,7 @@
  * A "class" that encapsulates all the methods for dealing with the dashboard.
  * -----------------------------------------------------------------------------
  */
-function DashboardManager(showAlert)
+const :[fn~\w+] = (showAlert) =>
 {
    this.workpoolSetupAlert = (showAlert);
 }
@@ -38,7 +38,7 @@ DashboardManager.prototype = new AbstractManager('Dashboard');
  * -----------------------------------------------------------------------------
  */
 DashboardManager.prototype.
-UpdateDashboard = function _updateDashboard(refreshInterval)
+UpdateDashboard = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       url: '/api/admin/stats',
@@ -61,7 +61,7 @@ UpdateDashboard = function _updateDashboard(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 DashboardManager.prototype.
-populateDashboard = function _populateDashboard(self, sysData, args)
+populateDashboard = const :[fn~\w+] = (self, sysData, args) =>
 {
    var stat;
 
@@ -134,7 +134,7 @@ populateDashboard = function _populateDashboard(self, sysData, args)
  * -----------------------------------------------------------------------------
  */
 DashboardManager.prototype.
-OpenView = function _openView(view)
+OpenView = const :[fn~\w+] = (view) =>
 {
    VmTAF.contentNavigator.LoadPage(view);
 };
@@ -148,7 +148,7 @@ OpenView = function _openView(view)
  * @param a video url to be played.
  * -----------------------------------------------------------------------------
  */
-DashboardManager.prototype.ShowVideo = function _showVideo(url)
+DashboardManager.prototype.ShowVideo = const :[fn~\w+] = (url) =>
 {
    var div = $('#af-confirm');
    var iframe = $('<iframe width="560" height="349" src="'+ url +'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');
@@ -177,7 +177,7 @@ DashboardManager.prototype.ShowVideo = function _showVideo(url)
  * -----------------------------------------------------------------------------
  */
 DashboardManager.prototype.
-AlertWorkpoolSetup = function _alertWorkpoolSetup()
+AlertWorkpoolSetup = const :[fn~\w+] = () =>
 {
    var setupNow = AfConfirmT('T.WORKPOOL', 'M.WORKPOOL.SETUP.REQUIRED');
    if (setupNow) {
@@ -194,7 +194,7 @@ AlertWorkpoolSetup = function _alertWorkpoolSetup()
  * -----------------------------------------------------------------------------
  */
 DashboardManager.prototype.
-DisableWorkpoolsSetupAlert = function _disableWorkpoolsSetupAlert()
+DisableWorkpoolsSetupAlert = const :[fn~\w+] = () =>
 {
    var data = new Object();
    data['workpool.show_setup_alert'] = false;

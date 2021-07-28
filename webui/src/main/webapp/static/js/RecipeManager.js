@@ -24,13 +24,13 @@
  * Manager for dealing with all aspects of conversion "recipes".
  * -----------------------------------------------------------------------------
  */
-function RecipeManager(
+const :[fn~\w+] = (
       appId, lastRecipeId, selectionData,
       basicTab, basicChangeMarker,
       variablesTab, variablesChangeMarker,
       filesTab, filesChangeMarker,
       stepsTab, stepsChangeMarker
-)
+) =>
 {
    if ('' == appId) {
       appId = null;
@@ -74,7 +74,7 @@ RecipeManager.prototype = new AbstractManager('Recipes');
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-HasChanges = function _hasChanges()
+HasChanges = const :[fn~\w+] = () =>
 {
    var changes = false;
 
@@ -103,7 +103,7 @@ HasChanges = function _hasChanges()
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-MarkAsUnchanged = function _markAsUnchanged()
+MarkAsUnchanged = const :[fn~\w+] = () =>
 {
    if (this.basicEditor) {
       this.basicEditor.MarkAsUnchanged();
@@ -129,7 +129,7 @@ MarkAsUnchanged = function _markAsUnchanged()
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-UpdateRecipes = function _updateRecipes(table, refreshInterval)
+UpdateRecipes = const :[fn~\w+] = (table, refreshInterval) =>
 {
    this.CreateTableWrapper(table);
 
@@ -165,7 +165,7 @@ RenderIcon = function (icons)
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-DeleteSelected = function _deleteSelected()
+DeleteSelected = const :[fn~\w+] = () =>
 {
    var recipes = this.tableWrapper.GetSelectedRowData();
 
@@ -283,7 +283,7 @@ newRecipe = function()
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-CloneSelected = function _cloneSelected()
+CloneSelected = const :[fn~\w+] = () =>
 {
    var recipes = this.tableWrapper.GetSelectedRowData();
 
@@ -355,7 +355,7 @@ CloneSelected = function _cloneSelected()
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-ExportSelected = function _exportSelected()
+ExportSelected = const :[fn~\w+] = () =>
 {
    var recipes = this.tableWrapper.GetSelectedRowData();
 
@@ -421,7 +421,7 @@ ExportSelected = function _exportSelected()
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-GetRecipeAndPopulateEditor = function _getRecipeAndPopulateEditor(recipeId)
+GetRecipeAndPopulateEditor = const :[fn~\w+] = (recipeId) =>
 {
    var self = this;
 
@@ -450,7 +450,7 @@ GetRecipeAndPopulateEditor = function _getRecipeAndPopulateEditor(recipeId)
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-PopulateEditor = function _populateEditor(recipe)
+PopulateEditor = const :[fn~\w+] = (recipe) =>
 {
    var readOnly = recipe && recipe.readOnly;
 
@@ -499,7 +499,7 @@ PopulateEditor = function _populateEditor(recipe)
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-SaveRecipe = function _saveRecipe()
+SaveRecipe = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -570,7 +570,7 @@ SaveRecipe = function _saveRecipe()
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-startFileUploads = function _startFileUploads(recipe, goBack, appId)
+startFileUploads = const :[fn~\w+] = (recipe, goBack, appId) =>
 {
    var self = this;
 
@@ -685,7 +685,7 @@ cancel = function() {
  * -----------------------------------------------------------------------------
  */
 RecipeManager.prototype.
-saveRecipeImpl = function _saveRecipeImpl(recipe, validate, goBack, appId)
+saveRecipeImpl = const :[fn~\w+] = (recipe, validate, goBack, appId) =>
 {
    var self = this;
 
