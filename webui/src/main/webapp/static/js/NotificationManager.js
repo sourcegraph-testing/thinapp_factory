@@ -22,7 +22,7 @@
  * A "class" that encapsulates all the methods for dealing with the Notification.
  * -----------------------------------------------------------------------------
  */
-function NotificationManager(table)
+const :[fn~\w+] = (table) =>
 {
    this.taskProgressHolder = $('#task-progress-holder');
    this.actionAlertHolder = $('#action-alert-holder');
@@ -96,7 +96,7 @@ NotificationManager.prototype = new AbstractManager('Notification');
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-poll = function _poll(refreshInterval)
+poll = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       url: '/api/notification',
@@ -121,7 +121,7 @@ poll = function _poll(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-updateEvents = function _updateEvents(self, data, options)
+updateEvents = const :[fn~\w+] = (self, data, options) =>
 {
    if (!data) {
       return;
@@ -164,7 +164,7 @@ updateEvents = function _updateEvents(self, data, options)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-createEventTable = function _createEventTable(events)
+createEventTable = const :[fn~\w+] = (events) =>
 {
    if (!events) {
       return;
@@ -193,7 +193,7 @@ createEventTable = function _createEventTable(events)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-AddEvent = function _addEvent(event)
+AddEvent = const :[fn~\w+] = (event) =>
 {
    var row = this.createRow(event);
    this.tableWrapper.AddRow(row, event);
@@ -208,7 +208,7 @@ AddEvent = function _addEvent(event)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-createRow = function _createRow(event)
+createRow = const :[fn~\w+] = (event) =>
 {
    var row = new Array();
    var icon = this.icons[event.type];
@@ -243,7 +243,7 @@ createRow = function _createRow(event)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-createIcon = function _createIcon(type)
+createIcon = const :[fn~\w+] = (type) =>
 {
    // Add generic icon class, and the type if passed, info by default.
    return $('<div></div>').addClass(type).addClass('icon');
@@ -258,7 +258,7 @@ createIcon = function _createIcon(type)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-createStatusAlert = function _createStatusAlert(event)
+createStatusAlert = const :[fn~\w+] = (event) =>
 {
    if (event) {
       var time = '  - ' + AfTimeago(event.timeStamp);
@@ -282,7 +282,7 @@ createStatusAlert = function _createStatusAlert(event)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-PollAndPaintTaskProgress = function _pollAndPaintTaskProgress(pollInterval)
+PollAndPaintTaskProgress = const :[fn~\w+] = (pollInterval) =>
 {
    var self = this;
    var frequency = (pollInterval)? pollInterval : 3000;
@@ -328,7 +328,7 @@ PollAndPaintTaskProgress = function _pollAndPaintTaskProgress(pollInterval)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-updateTaskProgressWidget = function _updateTaskProgressWidget(data)
+updateTaskProgressWidget = const :[fn~\w+] = (data) =>
 {
    if (this.taskProgressHolder) {
       // If runTotal exists, then display, else hide task progress.
@@ -394,7 +394,7 @@ updateTaskProgressWidget = function _updateTaskProgressWidget(data)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-updateActionAlertWidget = function _updateActionAlertWidget(data)
+updateActionAlertWidget = const :[fn~\w+] = (data) =>
 {
    var groupUri = {
          "datastore" : "/admin/settings#1",
@@ -458,7 +458,7 @@ updateActionAlertWidget = function _updateActionAlertWidget(data)
  * -----------------------------------------------------------------------------
  */
 NotificationManager.prototype.
-getPluralizedMsg = function _getPluralizedMsg(group, count)
+getPluralizedMsg = const :[fn~\w+] = (group, count) =>
 {
    if (count == 0) {
       return AfTranslate(group + '.ZERO');

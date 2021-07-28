@@ -23,7 +23,7 @@
  * A "class" that encapsulates all the methods for dealing with builds.
  * -----------------------------------------------------------------------------
  */
-function BuildManager(table, status, likeBuildId, groupRows)
+const :[fn~\w+] = (table, status, likeBuildId, groupRows) =>
 {
    this.newRegValueDialog = null;
    this.groupRows = groupRows;
@@ -92,7 +92,7 @@ BuildManager.prototype = new AbstractManager('Builds');
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-UpdateBuildsView = function _updateBuildsView(refreshInterval)
+UpdateBuildsView = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       table: this.tableWrapper.dataTable,
@@ -118,7 +118,7 @@ UpdateBuildsView = function _updateBuildsView(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-UpdateAppsView = function _updateAppsView(refreshInterval)
+UpdateAppsView = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       table: this.tableWrapper.dataTable,
@@ -140,7 +140,7 @@ UpdateAppsView = function _updateAppsView(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-SetStatuses = function _setStatuses(newStatus)
+SetStatuses = const :[fn~\w+] = (newStatus) =>
 {
    var self = this;
    var builds = self.tableWrapper.GetSelectedRowData();
@@ -212,7 +212,7 @@ SetStatuses = function _setStatuses(newStatus)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-DeleteSelected = function _deleteSelected()
+DeleteSelected = const :[fn~\w+] = () =>
 {
    var builds = this.tableWrapper.GetSelectedRowData();
 
@@ -288,7 +288,7 @@ DeleteSelected = function _deleteSelected()
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-RebuildSelected = function _rebuildSelected()
+RebuildSelected = const :[fn~\w+] = () =>
 {
    var self = this;
    var localRebuilds = self.tableWrapper.GetSelectedRowData();
@@ -369,11 +369,11 @@ RebuildSelected = function _rebuildSelected()
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-LoadBuildSettings = function _loadBuildSettings(
+LoadBuildSettings = const :[fn~\w+] = (
       buildId,
       what,
       successFunc,
-      errorFunc)
+      errorFunc) =>
 {
    AfLog('Loading settings for build id ' + buildId);
    var settings = new Object();
@@ -473,11 +473,11 @@ GetBuildDefinitionsAndPopulateForm = function(
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-PopulateDefineForm = function _populateDefineForm(
+PopulateDefineForm = const :[fn~\w+] = (
       insertPoint,
       buildDefs,
       horizonEnabled,
-      matchTypes)
+      matchTypes) =>
 {
    var self = this;
 
@@ -712,7 +712,7 @@ PopulateDefineForm = function _populateDefineForm(
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-SubmitBuildRequest = function _buildApplications(formData)
+SubmitBuildRequest = const :[fn~\w+] = (formData) =>
 {
    // Validate the form, and if errors exist do not proceed.
    try {
@@ -813,7 +813,7 @@ SubmitBuildRequest = function _buildApplications(formData)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-validate = function _validate(formData)
+validate = const :[fn~\w+] = (formData) =>
 {
    /* Default workpool is required */
    if (!formData.batch.workpoolId) {
@@ -837,7 +837,7 @@ validate = function _validate(formData)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-SavePackageIni = function _savePackageIni(buildId, packageIni, successFunc)
+SavePackageIni = const :[fn~\w+] = (buildId, packageIni, successFunc) =>
 {
    var self = this;
    AfLog('Saving packageIni for build id ' + buildId);
@@ -887,7 +887,7 @@ SavePackageIni = function _savePackageIni(buildId, packageIni, successFunc)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-SaveRegistry = function _saveRegistry(registryEditor)
+SaveRegistry = const :[fn~\w+] = (registryEditor) =>
 {
    var success = registryEditor.ProcessChanges(
          this.registryCreateCallback,
@@ -914,10 +914,10 @@ SaveRegistry = function _saveRegistry(registryEditor)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-SaveFileSystem = function _saveFileSystem(
+SaveFileSystem = const :[fn~\w+] = (
       filesystemEditor,
       buildId,
-      forceRescan)
+      forceRescan) =>
 {
    var self = this;
 
@@ -931,9 +931,9 @@ SaveFileSystem = function _saveFileSystem(
    /* Then, tell CWS to rescan in case the user made manual edits */
    if (forceRescan) {
       AfLog('Forcing server rescan');
-      self.ForceServerRescan(buildId, function whenDone() {
+      self.ForceServerRescan(buildId, const :[fn~\w+] = () => {
          AfLog('Rescan complete, reloading data');
-         self.LoadBuildSettings(buildId, null, function whenDone(data) {
+         self.LoadBuildSettings(buildId, null, const :[fn~\w+] = (data) => {
             AfLog('Reloading complete, populating editor');
             filesystemEditor.Populate(data.dirRoot, data.projectDir);
          });
@@ -965,7 +965,7 @@ SaveFileSystem = function _saveFileSystem(
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-CreateDialog = function _createDialog(parentId, title, html, buttons)
+CreateDialog = const :[fn~\w+] = (parentId, title, html, buttons) =>
 {
    var top = '<div class="dialog">';
    top += '<div class="hd">' + title + '</div>';
@@ -1006,9 +1006,9 @@ CreateDialog = function _createDialog(parentId, title, html, buttons)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-ShowNewRegistryValueDialog = function _showNewRegistryValueDialog(
+ShowNewRegistryValueDialog = const :[fn~\w+] = (
       holderId,
-      okCallback)
+      okCallback) =>
 {
    var self = this;
    var title = 'New Registry Value';
@@ -1056,7 +1056,7 @@ ShowNewRegistryValueDialog = function _showNewRegistryValueDialog(
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-ForceServerRescan = function _forceServerRescan(buildId, whenDone)
+ForceServerRescan = const :[fn~\w+] = (buildId, whenDone) =>
 {
    var url = '/api/builds/' + buildId + '/settings/refresh';
    AfLog('Refreshing build settings: ' + url);
@@ -1100,7 +1100,7 @@ ForceServerRescan = function _forceServerRescan(buildId, whenDone)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-ResetAndReload = function _resetAndReload(buildId, what, whenDone)
+ResetAndReload = const :[fn~\w+] = (buildId, what, whenDone) =>
 {
    if (AfConfirmT('T.BUILDS.DISCARD_CHANGES', 'M.BUILDS.DISCARD_CHANGES')) {
       this.LoadBuildSettings(buildId, what, whenDone);
@@ -1323,7 +1323,7 @@ makeAppBlock = function (app, imageSize, editLink) {
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-createBuildRows = function _createBuildRows(self, jsonData, options) {
+createBuildRows = const :[fn~\w+] = (self, jsonData, options) => {
 
    // Remove all rows but the first (the header).
    self.tableWrapper.ClearTable();
@@ -1471,7 +1471,7 @@ createBuildRows = function _createBuildRows(self, jsonData, options) {
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-needsRebuild = function needsRebuild(build) {
+needsRebuild = const :[fn~\w+] = (build) => {
    return (build.settingsEdited > build.built || !build.thinapps.length);
 };
 
@@ -1562,7 +1562,7 @@ updateBuildSidebar = function(jsonData) {
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-updateBuildByAppsSidebar = function _updateBuildByAppsSidebar(jsonData)
+updateBuildByAppsSidebar = const :[fn~\w+] = (jsonData) =>
 {
    if (!(VmTAF.newUI && $('#vendorList'))) {
       // Not new ui or does not have placeholders.
@@ -1589,7 +1589,7 @@ updateBuildByAppsSidebar = function _updateBuildByAppsSidebar(jsonData)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-createAppRows = function _createAppRows(self, jsonData, options)
+createAppRows = const :[fn~\w+] = (self, jsonData, options) =>
 {
    var buildGroupByApps = jsonData.buildGroups || [];
 
@@ -1674,12 +1674,12 @@ LoadBuildEditorView = function(buildId)
 
    /* Load build settings */
    self.LoadBuildSettings(buildId, null,
-         function _success(data) {
+         const :[fn~\w+] = (data) => {
             /* Success: open the build editor page */
             VmTAF.buildSettings = data;
             VmTAF.contentNavigator.LoadPage('/builds/edit/' + buildId);
          },
-         function _error() {
+         const :[fn~\w+] = () => {
             /* Fail: stay where we are */
             AfLog("Failed to load build settings; editor not opened");
          });
@@ -1704,7 +1704,7 @@ LoadBuildEditorView = function(buildId)
  * -----------------------------------------------------------------------------
  */
 // BuildManager.prototype. XXX fix me! currently in quasi global state, try making it inline.
-errorHandlerForRebuildState = function _errorHandlerForRebuildState(jqXHR, textStatus, errorThrown)
+errorHandlerForRebuildState = const :[fn~\w+] = (jqXHR, textStatus, errorThrown) =>
 {
    if (jqXHR.status == 409 && 'NO_CRUD_DURING_REBUILD' == jqXHR.responseText) {
       AfErrorT(
@@ -1794,7 +1794,7 @@ createRecipePulldownGroups = function(buildRequest, matchTypes, recipeMap)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-showRecipeVariables = function _showRecipeVariables(newValue, changeData)
+showRecipeVariables = const :[fn~\w+] = (newValue, changeData) =>
 {
    var newRecipeId = newValue;
    var defs = changeData.defs;
@@ -1852,7 +1852,7 @@ showRecipeVariables = function _showRecipeVariables(newValue, changeData)
  * -----------------------------------------------------------------------------
  */
 BuildManager.prototype.
-Import = function _import(form)
+Import = const :[fn~\w+] = (form) =>
 {
    var json = AfSerializeForm(form);
 

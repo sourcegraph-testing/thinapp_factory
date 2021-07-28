@@ -38,7 +38,7 @@ TableWrapper.ROW_CHECKBOX_CHANGE = "checkbox_change_taf";
  * @param options Initialization options for the data table.
  * -----------------------------------------------------------------------------
  */
-function TableWrapper(table, options) {
+const :[fn~\w+] = (table, options) => {
    "use strict";
 
    var allOptions, opt;

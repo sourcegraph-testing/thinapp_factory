@@ -1,4 +1,4 @@
-function Mks() {
+const :[fn~\w+] = () => {
    var self = this;
 
    this.setStatus("Waiting.");
@@ -47,11 +47,11 @@ Mks.prototype.cancel = function() {
    var cancel = $("#cancel");
    var url = "/manualmode-web/manual/cancel";
 
-   function cancelDone() {
+   const :[fn~\w+] = () => {
       cancel.attr("disabled", "true");
    }
 
-   function cancelFail() {
+   const :[fn~\w+] = () => {
       log.error("Cancel failed.");
    }
 
@@ -106,12 +106,12 @@ Mks.prototype.next = function() {
    var next = $("#next")[0];
    var url = "/manualmode-web/manual/next/" + next.status;
 
-   function nextDone() {
+   const :[fn~\w+] = () => {
       // XXX: How do you prevent people from doing this multiple times?
       $(next).attr("disabled", "true");
    }
 
-   function nextFail() {
+   const :[fn~\w+] = () => {
       log.error("Next failed.");
    }
 
@@ -144,7 +144,7 @@ Mks.prototype.acquire = function() {
    // Job finished (could have succeeded or failed).
    var FINISHED = "finished";
 
-   function ticketDone(data) {
+   const :[fn~\w+] = (data) => {
       var ticket = data;
       self.ticket = ticket;
       log.info("Received ticket: ", ticket, ".");
@@ -155,7 +155,7 @@ Mks.prototype.acquire = function() {
       $.postJSON(url, ticket).success(redeemDone).error(redeemFail);
    }
 
-   function redeemDone(status) {
+   const :[fn~\w+] = (status) => {
       log.info("Received redeem status: ", status);
       var currentState = status.states[status.states.length - 1];
 
@@ -199,12 +199,12 @@ Mks.prototype.acquire = function() {
       }, 3000);
    }
 
-   function redeemFail() {
+   const :[fn~\w+] = () => {
       log.error("Ticket redeem failed, so sad.");
       self.setStatus("Failed to redeem ticket.");
    }
 
-   function ticketFail() {
+   const :[fn~\w+] = () => {
       log.error("Ticket request failed, so sad.");
       self.setStatus("Failed to request ticket.");
    }

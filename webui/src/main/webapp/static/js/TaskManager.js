@@ -25,7 +25,7 @@
  * with tasks.
  * -----------------------------------------------------------------------------
  */
-function TaskManager(table, metaStatus)
+const :[fn~\w+] = (table, metaStatus) =>
 {
    this.updateUrl = '/api/tasks?sort=true';
    if (metaStatus) {
@@ -56,7 +56,7 @@ TaskManager.prototype = new AbstractManager('Tasks');
  * -----------------------------------------------------------------------------
  */
 TaskManager.prototype.
-UpdateTasks = function _updateTasks(refreshInterval)
+UpdateTasks = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       table: this.tableWrapper.dataTable,
@@ -79,7 +79,7 @@ UpdateTasks = function _updateTasks(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 TaskManager.prototype.
-Cleanup = function _cleanup()
+Cleanup = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -106,7 +106,7 @@ Cleanup = function _cleanup()
  * -----------------------------------------------------------------------------
  */
 TaskManager.prototype.
-AbortSelectedTasks = function _abortSelectedTasks()
+AbortSelectedTasks = const :[fn~\w+] = () =>
 {
    var self = this;
    var tasks = self.tableWrapper.GetSelectedRowData();
@@ -150,7 +150,7 @@ AbortSelectedTasks = function _abortSelectedTasks()
  * -----------------------------------------------------------------------------
  */
 TaskManager.prototype.
-createRows = function _createRows(self, jsonData, options)
+createRows = const :[fn~\w+] = (self, jsonData, options) =>
 {
    var tasks = jsonData;
    var popupData = {};
