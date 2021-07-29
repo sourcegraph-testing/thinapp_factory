@@ -28,7 +28,7 @@
  */
 RecipeVarEditor.prototype = new AbstractSettingsEditor();
 RecipeVarEditor.prototype.constructor = RecipeVarEditor;
-function RecipeVarEditor(tab, changeMarker)
+const :[fn~\w+] = (tab, changeMarker) =>
 {
    this.changeMarker = changeMarker;
 
@@ -47,7 +47,7 @@ function RecipeVarEditor(tab, changeMarker)
  * -----------------------------------------------------------------------------
  */
 RecipeVarEditor.prototype.
-Serialize = function _serialize()
+Serialize = const :[fn~\w+] = () =>
 {
    var json = this.stackEditor.Serialize();
    return json;
@@ -67,7 +67,7 @@ Serialize = function _serialize()
  * -----------------------------------------------------------------------------
  */
 RecipeVarEditor.prototype.
-PopulateVariables = function _populateVariables(recipe, readOnly)
+PopulateVariables = const :[fn~\w+] = (recipe, readOnly) =>
 {
    var self = this;
 
@@ -107,7 +107,7 @@ PopulateVariables = function _populateVariables(recipe, readOnly)
  * -----------------------------------------------------------------------------
  */
 RecipeVarEditor.prototype.
-AddVariableGroup = function _addVariableGroup(variable)
+AddVariableGroup = const :[fn~\w+] = (variable) =>
 {
    var self = this;
 
@@ -176,7 +176,7 @@ AddVariableGroup = function _addVariableGroup(variable)
  * -----------------------------------------------------------------------------
  */
 RecipeVarEditor.prototype.
-ConfirmDelete = function _confirmDelete()
+ConfirmDelete = const :[fn~\w+] = () =>
 {
    return AfConfirm(
          "Confirm Delete",

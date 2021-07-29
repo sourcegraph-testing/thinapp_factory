@@ -30,7 +30,7 @@
 RecipeStepEditor.prototype = new AbstractSettingsEditor();
 RecipeStepEditor.prototype.constructor = RecipeStepEditor;
 
-function RecipeStepEditor(tab, changeMarker)
+const :[fn~\w+] = (tab, changeMarker) =>
 {
    this.changeMarker = changeMarker;
 
@@ -53,7 +53,7 @@ function RecipeStepEditor(tab, changeMarker)
  * -----------------------------------------------------------------------------
  */
 RecipeStepEditor.prototype.
-Serialize = function _serialize()
+Serialize = const :[fn~\w+] = () =>
 {
    var json = {};
 
@@ -92,7 +92,7 @@ Serialize = function _serialize()
  * -----------------------------------------------------------------------------
  */
 RecipeStepEditor.prototype.
-PopulateRecipe = function _populateRecipe(recipe, readOnly)
+PopulateRecipe = const :[fn~\w+] = (recipe, readOnly) =>
 {
    var self = this;
 
@@ -154,7 +154,7 @@ PopulateRecipe = function _populateRecipe(recipe, readOnly)
  * -----------------------------------------------------------------------------
  */
 RecipeStepEditor.prototype.
-ConfirmDeleteCommand = function _confirmDeleteCommand()
+ConfirmDeleteCommand = const :[fn~\w+] = () =>
 {
    /* Confirm delete */
    if (!AfConfirm(
@@ -177,7 +177,7 @@ ConfirmDeleteCommand = function _confirmDeleteCommand()
  * -----------------------------------------------------------------------------
  */
 RecipeStepEditor.prototype.
-AddNewCommand = function _addNewCommand(group)
+AddNewCommand = const :[fn~\w+] = (group) =>
 {
    var self = this;
 
@@ -213,7 +213,7 @@ AddNewCommand = function _addNewCommand(group)
  * -----------------------------------------------------------------------------
  */
 RecipeStepEditor.prototype.
-AddRowForCommand = function _addRowForCommand(group, command, where)
+AddRowForCommand = const :[fn~\w+] = (group, command, where) =>
 {
    var self = this;
 

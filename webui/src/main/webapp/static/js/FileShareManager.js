@@ -25,7 +25,7 @@
  * with fileshare.
  * -----------------------------------------------------------------------------
  */
-function FileShareManager(table)
+const :[fn~\w+] = (table) =>
 {
    if (table) {
       var tableOpts = {
@@ -55,7 +55,7 @@ FileShareManager.prototype = new AbstractManager('FileShare');
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-UpdateFileShareList = function _UpdateFileShareList(refreshInterval)
+UpdateFileShareList = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       dataHandler: this.createRows,
@@ -105,7 +105,7 @@ GetFileshareAndPopulateForm = function(fileshareId)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-PopulateEditForm = function _PopulateEditForm(fs)
+PopulateEditForm = const :[fn~\w+] = (fs) =>
 {
    $('[name="name"]').val(fs.name);
    $('[name="serverPath"]').val(fs.serverPath);
@@ -126,7 +126,7 @@ PopulateEditForm = function _PopulateEditForm(fs)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-DeleteSelectedFileShares = function _DeleteSelectedFileShares()
+DeleteSelectedFileShares = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -185,7 +185,7 @@ DeleteSelectedFileShares = function _DeleteSelectedFileShares()
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-SubmitEditForm = function _SubmitEditForm(form)
+SubmitEditForm = const :[fn~\w+] = (form) =>
 {
    var self = this;
 
@@ -206,7 +206,7 @@ SubmitEditForm = function _SubmitEditForm(form)
       url: '/api/fileshare/' + fileShareId,
       data: json,
 
-      error: function _onError(jqXHR, textStatus, errorThrown) {
+      error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
          // Failed to save the form
          AfError('Error', 'Save failed: ' + jqXHR.responseText);
       },
@@ -231,7 +231,7 @@ SubmitEditForm = function _SubmitEditForm(form)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-SubmitNewFileShareForm = function _SubmitNewFileShareForm(holder)
+SubmitNewFileShareForm = const :[fn~\w+] = (holder) =>
 {
    var self = this;
 
@@ -277,7 +277,7 @@ SubmitNewFileShareForm = function _SubmitNewFileShareForm(holder)
  * @param jsonData
  * -----------------------------------------------------------------------------
  */
-FileShareManager.prototype.checkDelta = function _checkDelta(self, json)
+FileShareManager.prototype.checkDelta = const :[fn~\w+] = (self, json) =>
 {
    var rows = self.tableWrapper.GetUnSelectedRowData(true);
    var appDeltas = new Array();
@@ -316,7 +316,7 @@ FileShareManager.prototype.checkDelta = function _checkDelta(self, json)
  * @param jsonData - an updated json.
  * -----------------------------------------------------------------------------
  */
-FileShareManager.prototype.getSkippedApps = function _getSkippedApps(self, json)
+FileShareManager.prototype.getSkippedApps = const :[fn~\w+] = (self, json) =>
 {
    var apps = self.tableWrapper.GetSelectedRowData();
    var skip_array = new Array();
@@ -342,7 +342,7 @@ FileShareManager.prototype.getSkippedApps = function _getSkippedApps(self, json)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-addApplicationRows = function _addApplicationRows(self, apps, installerSuffix)
+addApplicationRows = const :[fn~\w+] = (self, apps, installerSuffix) =>
 {
    var suffix = (installerSuffix) ? installerSuffix + '-' : '';
 
@@ -472,7 +472,7 @@ addApplicationRows = function _addApplicationRows(self, apps, installerSuffix)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-createEditableRows = function _createEditableRows(self, jsonData)
+createEditableRows = const :[fn~\w+] = (self, jsonData) =>
 {
    /* Remove all rows data from the table. */
    self.tableWrapper.ClearTable();
@@ -492,7 +492,7 @@ createEditableRows = function _createEditableRows(self, jsonData)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-createTabs = function _createTabs(self, jsonData, installerSuffix)
+createTabs = const :[fn~\w+] = (self, jsonData, installerSuffix) =>
 {
    /* Remove all rows data from the table. */
    self.tableWrapper.ClearTable();
@@ -517,7 +517,7 @@ createTabs = function _createTabs(self, jsonData, installerSuffix)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-createRemovedAppsTable = function _createRemovedAppsTable(apps)
+createRemovedAppsTable = const :[fn~\w+] = (apps) =>
 {
    var table = new TableWrapper($('#fileshare-import-table-removed'));
 
@@ -557,7 +557,7 @@ createRemovedAppsTable = function _createRemovedAppsTable(apps)
  * in the last key column via jQuery data.
  * -----------------------------------------------------------------------------
  */
-FileShareManager.prototype.changeHandler = function _changeHandler()
+FileShareManager.prototype.changeHandler = const :[fn~\w+] = () =>
 {
    /* Save the original value */
    var original_value = $(this).val();
@@ -587,7 +587,7 @@ FileShareManager.prototype.changeHandler = function _changeHandler()
  * for editing.
  * -----------------------------------------------------------------------------
  */
-FileShareManager.prototype.Scan = function _Scan(holder)
+FileShareManager.prototype.Scan = const :[fn~\w+] = (holder) =>
 {
    var self = this;
 
@@ -638,7 +638,7 @@ FileShareManager.prototype.Scan = function _Scan(holder)
  * for editing.
  * -----------------------------------------------------------------------------
  */
-FileShareManager.prototype.Rescan = function _Rescan(holder)
+FileShareManager.prototype.Rescan = const :[fn~\w+] = (holder) =>
 {
    var self = this;
 
@@ -682,7 +682,7 @@ FileShareManager.prototype.Rescan = function _Rescan(holder)
  * for editing.
  * -----------------------------------------------------------------------------
  */
-FileShareManager.prototype.displaySyncResult = function _displaySyncResult(self, data)
+FileShareManager.prototype.displaySyncResult = const :[fn~\w+] = (self, data) =>
 {
    self.disableBasicInfoFields();
    $('label[for="basic-information"]').click();
@@ -705,7 +705,7 @@ FileShareManager.prototype.displaySyncResult = function _displaySyncResult(self,
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-createRows = function _createRows(self, jsonData, options)
+createRows = const :[fn~\w+] = (self, jsonData, options) =>
 {
    var fileshare = jsonData;
 
@@ -760,7 +760,7 @@ createRows = function _createRows(self, jsonData, options)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-ToggleOptionalFields = function _ToggleOptionalFields()
+ToggleOptionalFields = const :[fn~\w+] = () =>
 {
    if ($('[name="authRequired"]').is(':checked')) {
       $('#login').show();
@@ -781,7 +781,7 @@ ToggleOptionalFields = function _ToggleOptionalFields()
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-ToDataTable = function _ToDataTable(table)
+ToDataTable = const :[fn~\w+] = (table) =>
 {
    var tableOpts = {
          "bPaginate": false,
@@ -801,7 +801,7 @@ ToDataTable = function _ToDataTable(table)
  * -----------------------------------------------------------------------------
  */
 FileShareManager.prototype.
-disableBasicInfoFields = function _disableBasicInfoFields()
+disableBasicInfoFields = const :[fn~\w+] = () =>
 {
    $('[name="serverPath"]').attr("disabled", true);
    $('[name="authRequired"]').attr("disabled", true);

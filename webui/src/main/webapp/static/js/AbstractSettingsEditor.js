@@ -25,7 +25,7 @@
  * them. See IniEditor, RegistryEditor, and FileSystemEditor.
  * -----------------------------------------------------------------------------
  */
-function AbstractSettingsEditor()
+const :[fn~\w+] = () =>
 {
    this.unsavedChanges = 0;
 }
@@ -39,7 +39,7 @@ function AbstractSettingsEditor()
  * -----------------------------------------------------------------------------
  */
 AbstractSettingsEditor.prototype.
-MarkAsChanged = function _markedAsChanged()
+MarkAsChanged = const :[fn~\w+] = () =>
 {
    this.unsavedChanges++;
    if (this.changeMarker && this.unsavedChanges == 1) {
@@ -56,7 +56,7 @@ MarkAsChanged = function _markedAsChanged()
  * -----------------------------------------------------------------------------
  */
 AbstractSettingsEditor.prototype.
-MarkAsUnchanged = function _markedAsUnchanged()
+MarkAsUnchanged = const :[fn~\w+] = () =>
 {
    this.unsavedChanges = 0;
    if (this.changeMarker) {
@@ -74,7 +74,7 @@ MarkAsUnchanged = function _markedAsUnchanged()
  * -----------------------------------------------------------------------------
  */
 AbstractSettingsEditor.prototype.
-HasChanges = function _hasChanges()
+HasChanges = const :[fn~\w+] = () =>
 {
    return (this.unsavedChanges > 0);
 };

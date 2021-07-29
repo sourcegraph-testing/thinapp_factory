@@ -991,7 +991,7 @@ jQuery.extend({
 	},
 
 	sub: function() {
-		function jQuerySubclass( selector, context ) {
+		const :[fn~\w+] = ( selector, context ) => {
 			return new jQuerySubclass.fn.init( selector, context );
 		}
 		jQuery.extend( true, jQuerySubclass, this );
@@ -999,7 +999,7 @@ jQuery.extend({
 		jQuerySubclass.fn = jQuerySubclass.prototype = this();
 		jQuerySubclass.fn.constructor = jQuerySubclass;
 		jQuerySubclass.subclass = this.subclass;
-		jQuerySubclass.fn.init = function init( selector, context ) {
+		jQuerySubclass.fn.init = const :[fn~\w+] = ( selector, context ) => {
 			if ( context && context instanceof jQuery && !(context instanceof jQuerySubclass) ) {
 				context = jQuerySubclass(context);
 			}
@@ -1066,7 +1066,7 @@ if ( document.addEventListener ) {
 }
 
 // The DOM ready check for Internet Explorer
-function doScrollCheck() {
+const :[fn~\w+] = () => {
 	if ( jQuery.isReady ) {
 		return;
 	}
@@ -1209,7 +1209,7 @@ return jQuery;
 	}
 
 	if ( !div.addEventListener && div.attachEvent && div.fireEvent ) {
-		div.attachEvent("onclick", function click() {
+		div.attachEvent("onclick", const :[fn~\w+] = () => {
 			// Cloning a node shouldn't copy over any
 			// bound event handlers (IE does this)
 			jQuery.support.noCloneEvent = false;
@@ -1593,7 +1593,7 @@ jQuery.fn.extend({
 	}
 });
 
-function dataAttr( elem, key, data ) {
+const :[fn~\w+] = ( elem, key, data ) => {
 	// If nothing was found internally, try to fetch any
 	// data from the HTML5 data-* attribute
 	if ( data === undefined && elem.nodeType === 1 ) {
@@ -1623,7 +1623,7 @@ function dataAttr( elem, key, data ) {
 // TODO: This is a hack for 1.5 ONLY to allow objects with a single toJSON
 // property to be considered empty objects; this property always exists in
 // order to make sure JSON.stringify does not expose internal metadata
-function isEmptyDataObject( obj ) {
+const :[fn~\w+] = ( obj ) => {
 	for ( var name in obj ) {
 		if ( name !== "toJSON" ) {
 			return false;

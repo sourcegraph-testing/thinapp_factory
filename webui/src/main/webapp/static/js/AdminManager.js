@@ -24,7 +24,7 @@
  * with administration.
  * -----------------------------------------------------------------------------
  */
-function AdminManager()
+const :[fn~\w+] = () =>
 {
    this.serverDateTime = null;
    this.serverUptime = null;
@@ -38,7 +38,7 @@ AdminManager.prototype = new AbstractManager('Admin');
  * Cleans up anything this object might have instantiated.
  * @returns null
  */
-AdminManager.prototype.Destruct = function _destruct()
+AdminManager.prototype.Destruct = const :[fn~\w+] = () =>
 {
    this.serverDateTime = null;
    this.serverUptime = null;
@@ -54,7 +54,7 @@ AdminManager.prototype.Destruct = function _destruct()
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-CreateAdminEditor = function _createAdminEditor(insertPoint)
+CreateAdminEditor = const :[fn~\w+] = (insertPoint) =>
 {
    var self = this;
 
@@ -185,7 +185,7 @@ Reboot = function(self)
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-CheckApplianceIsUp = function _checkApplianceIsUp(self)
+CheckApplianceIsUp = const :[fn~\w+] = (self) =>
 {
    /* Try some webui URL which hits CWS */
    AfAjax({
@@ -248,7 +248,7 @@ CheckApplianceIsUp = function _checkApplianceIsUp(self)
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-GetLogs = function _getLogs(self)
+GetLogs = const :[fn~\w+] = (self) =>
 {
    // Point the current window at the REST resource for the log file, it will
    // be downloaded by the browser
@@ -264,7 +264,7 @@ GetLogs = function _getLogs(self)
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-UpdateServerInfo = function _updateServerInfo()
+UpdateServerInfo = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -304,7 +304,7 @@ UpdateServerInfo = function _updateServerInfo()
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-UpdateServerTimes = function _updateServerTimes()
+UpdateServerTimes = const :[fn~\w+] = () =>
 {
    if (this.serverDateTime) {
       this.serverDateTime.setSeconds(this.serverDateTime.getSeconds() + 1);
@@ -326,7 +326,7 @@ UpdateServerTimes = function _updateServerTimes()
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-ShowTimeSync = function _showTimeSync()
+ShowTimeSync = const :[fn~\w+] = () =>
 {
    // Get the timesync checkbox and status
    var cb = $('#timesync-toggle-cb');
@@ -365,7 +365,7 @@ ShowTimeSync = function _showTimeSync()
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-ToggleTimeSync = function _toggleTimeSync()
+ToggleTimeSync = const :[fn~\w+] = () =>
 {
    // Get the timesync checkbox
    var cb = $('#timesync-toggle-cb');
@@ -425,7 +425,7 @@ ToggleTimeSync = function _toggleTimeSync()
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-AcceptEula = function _acceptEula()
+AcceptEula = const :[fn~\w+] = () =>
 {
    /* Make sure the box is checked */
    if ($('#eula-accepted').is(':checked') == false) {
@@ -458,7 +458,7 @@ AcceptEula = function _acceptEula()
  * -----------------------------------------------------------------------------
  */
 AdminManager.prototype.
-ResetPassword = function _resetPassword(form)
+ResetPassword = const :[fn~\w+] = (form) =>
 {
    var json = AfSerializeForm(form);
    if (json['newPassword'] != json['confirmPassword']) {

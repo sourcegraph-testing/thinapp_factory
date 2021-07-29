@@ -24,7 +24,7 @@
  * with datastores.
  * -----------------------------------------------------------------------------
  */
-function DatastoreManager(table, status)
+const :[fn~\w+] = (table, status) =>
 {
    this.refreshUrl = '/api/datastores';
    if (status) {
@@ -51,7 +51,7 @@ DatastoreManager.prototype = new AbstractManager('Datastores');
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-UpdateDatastores = function _updateDatastores(refreshInterval)
+UpdateDatastores = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       table: this.tableWrapper.dataTable,
@@ -73,7 +73,7 @@ UpdateDatastores = function _updateDatastores(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-GetDatastoreAndPopulateEditForm = function _PopulateEditForm(dsId)
+GetDatastoreAndPopulateEditForm = const :[fn~\w+] = (dsId) =>
 {
    var self = this;
 
@@ -98,7 +98,7 @@ GetDatastoreAndPopulateEditForm = function _PopulateEditForm(dsId)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-PopulateEditForm = function _PopulateEditForm(datastore)
+PopulateEditForm = const :[fn~\w+] = (datastore) =>
 {
    $('[name="name"]').val(datastore.name);
    $('[name="type"]').val(datastore.type);
@@ -118,7 +118,7 @@ PopulateEditForm = function _PopulateEditForm(datastore)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-DeleteSelectedDatastores = function _DeleteSelectedDatastores()
+DeleteSelectedDatastores = const :[fn~\w+] = () =>
 {
    var self = this;
    var datastores = this.tableWrapper.GetSelectedRowData();
@@ -203,7 +203,7 @@ DeleteSelectedDatastores = function _DeleteSelectedDatastores()
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-SetSelectedDatastoresStatus = function _SetSelectedDatastoresStatus(status)
+SetSelectedDatastoresStatus = const :[fn~\w+] = (status) =>
 {
    var self = this;
    var datastores = this.tableWrapper.GetSelectedRowData();
@@ -263,7 +263,7 @@ SetSelectedDatastoresStatus = function _SetSelectedDatastoresStatus(status)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-SubmitEditForm = function _SubmitEditForm(form)
+SubmitEditForm = const :[fn~\w+] = (form) =>
 {
    var json = AfSerializeForm(form);
 
@@ -307,7 +307,7 @@ SubmitEditForm = function _SubmitEditForm(form)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-CheckUsage = function _checkUsage(ds)
+CheckUsage = const :[fn~\w+] = (ds) =>
 {
    var response = null;
    AfAjax({
@@ -362,7 +362,7 @@ CheckUsage = function _checkUsage(ds)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-SubmitNewDatastoreForm = function _submitNewDatastoreForm()
+SubmitNewDatastoreForm = const :[fn~\w+] = () =>
 {
    var self = this;
    AfLog('submitting new datastore');
@@ -405,7 +405,7 @@ SubmitNewDatastoreForm = function _submitNewDatastoreForm()
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-createRows = function _createRows(self, jsonData, options)
+createRows = const :[fn~\w+] = (self, jsonData, options) =>
 {
    var datastores = jsonData.datastores;
    var defaultId = jsonData['defaultId'];
@@ -510,7 +510,7 @@ createRows = function _createRows(self, jsonData, options)
  * -----------------------------------------------------------------------------
  */
 DatastoreManager.prototype.
-computeAndCreateFreeSpaceBar = function _computeAndCreateFreeSpaceBar(used, size)
+computeAndCreateFreeSpaceBar = const :[fn~\w+] = (used, size) =>
 {
    // Free space percentage.
    var free = size - used;

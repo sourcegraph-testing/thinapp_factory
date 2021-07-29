@@ -25,7 +25,7 @@
  * for a store page.
  * -----------------------------------------------------------------------------
  */
-function AppStoreManager(props)
+const :[fn~\w+] = (props) =>
 {
    this.serverName = props.serverName;
    this.serverPort = props.serverPort;
@@ -57,7 +57,7 @@ function AppStoreManager(props)
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-InstallEventHandlers = function _installEventHandlers(builds)
+InstallEventHandlers = const :[fn~\w+] = (builds) =>
 {
    var self = this;
 
@@ -82,7 +82,7 @@ InstallEventHandlers = function _installEventHandlers(builds)
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-HandleBuildClickEvent = function _handleInstallCheck(build)
+HandleBuildClickEvent = const :[fn~\w+] = (build) =>
 {
    var box = build.find('input:checkbox');
    var buildId = box.attr("value");
@@ -122,7 +122,7 @@ HandleBuildClickEvent = function _handleInstallCheck(build)
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-UpdateActionButton = function _updateActionButton(pkgList, action)
+UpdateActionButton = const :[fn~\w+] = (pkgList, action) =>
 {
    var str = null;
 
@@ -169,7 +169,7 @@ UpdateActionButton = function _updateActionButton(pkgList, action)
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-ToggleActionButton = function _toggleInstallButton()
+ToggleActionButton = const :[fn~\w+] = () =>
 {
    // Show it if there are builds to be installed
    var show = (this.actionIds.length > 0);
@@ -197,7 +197,7 @@ ToggleActionButton = function _toggleInstallButton()
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-PopulatePublishedBuilds = function _populatePublishedBuilds()
+PopulatePublishedBuilds = const :[fn~\w+] = () =>
 {
    var self = this;
    AfLog('Populating page with published builds');
@@ -235,7 +235,7 @@ PopulatePublishedBuilds = function _populatePublishedBuilds()
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-PopulateInstalledBuilds = function _populateInstalledBuilds()
+PopulateInstalledBuilds = const :[fn~\w+] = () =>
 {
    var self = this;
    var builds = new Array();
@@ -271,7 +271,7 @@ PopulateInstalledBuilds = function _populateInstalledBuilds()
          method: 'GET',
          url: '/api/builds/' + buildId,
          async: false,
-         success: function _populateInstalledBuildsSuccess(json) {
+         success: const :[fn~\w+] = (json) => {
             builds.push(json);
             AfLog('Build details OK');
          },
@@ -303,7 +303,7 @@ PopulateInstalledBuilds = function _populateInstalledBuilds()
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-PopulateBuilds = function _populateBuilds(builds, withTabs)
+PopulateBuilds = const :[fn~\w+] = (builds, withTabs) =>
 {
    var self = this;
    var installedBuilds = null;
@@ -428,7 +428,7 @@ PopulateBuilds = function _populateBuilds(builds, withTabs)
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-createCategoryDropdown = function _createCategoryDropdown(parentDiv, buildCats)
+createCategoryDropdown = const :[fn~\w+] = (parentDiv, buildCats) =>
 {
    /* Default ALL selected drop-down */
    var all = $('<option>').val('ALL').text(AfTranslate('T.STORE.SELECT_ALL'));
@@ -491,7 +491,7 @@ createCategoryDropdown = function _createCategoryDropdown(parentDiv, buildCats)
  * -----------------------------------------------------------------------------
  */
 AppStoreManager.prototype.
-CreateViewLink = function _createViewLink(linkHolder)
+CreateViewLink = const :[fn~\w+] = (linkHolder) =>
 {
    var self = this;
 

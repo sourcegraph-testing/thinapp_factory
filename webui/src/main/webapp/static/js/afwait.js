@@ -34,7 +34,7 @@ VmTAF.waitIcon = VmTAF.imagePath + '/ajax-loader.gif';
  * @param args - Custom information related to progress etc.
  * -----------------------------------------------------------------------------
  */
-function AfStartPleaseWaitT(key, args)
+const :[fn~\w+] = (key, args) =>
 {
    AfStartPleaseWait(AfTranslate(key), args);
 }
@@ -56,7 +56,7 @@ function AfStartPleaseWaitT(key, args)
  *            .total - Indicates total number of items to be processed.
  * -----------------------------------------------------------------------------
  */
-function AfStartPleaseWait(message, args) {
+const :[fn~\w+] = (message, args) => {
    VmTAF.waitCount++;
 
    if (VmTAF.waitCount == 1) {
@@ -81,7 +81,7 @@ function AfStartPleaseWait(message, args) {
  * @param total
  * @returns {String}
  */
-function createProgressForPleaseWait(total) {
+const :[fn~\w+] = (total) => {
    var total = (typeof total == 'number')? total : 0;
    if (total <= 1) {
       return '';
@@ -102,7 +102,7 @@ function createProgressForPleaseWait(total) {
  * @param remaining - Items left to be processed.
  * @returns
  */
-function createOrUpdateProgress(holderDiv, total, remaining) {
+const :[fn~\w+] = (holderDiv, total, remaining) => {
    var current = (remaining > total)? total : (total-remaining);
    var percent = (current == 0)? 0 : Math.round(100 * current / total);
 
@@ -119,7 +119,7 @@ function createOrUpdateProgress(holderDiv, total, remaining) {
  *
  * @param current
  */
-function updateProgressForPleaseWait(current) {
+const :[fn~\w+] = (current) => {
    var holderDiv = $('#waitProgressHolder').find('.progress-container');
    // Invoke only if holderDiv exists, else it will create a new one.
    if (holderDiv) {
@@ -140,7 +140,7 @@ function updateProgressForPleaseWait(current) {
  * count was decremented.
  * -----------------------------------------------------------------------------
  */
-function AfEndPleaseWait()
+const :[fn~\w+] = () =>
 {
    if (0 == VmTAF.waitCount) {
       return true;
@@ -177,7 +177,7 @@ function AfEndPleaseWait()
  * @param data The optional data that the workFunction will act upon.
  * -----------------------------------------------------------------------------
  */
-function AfPleaseWaitAndProcess(message, workFunction, data) {
+const :[fn~\w+] = (message, workFunction, data) => {
    if (!message) {
       message = 'Please Wait';
       return;
@@ -193,7 +193,7 @@ function AfPleaseWaitAndProcess(message, workFunction, data) {
  * Initialize the modal for #modal-overlay with default params.
  * -----------------------------------------------------------------------------
  */
-function AfPleaseWaitModalInit()
+const :[fn~\w+] = () =>
 {
    // Remove default styling from UI blocker
    $.blockUI.defaults.css = {};
@@ -222,10 +222,10 @@ function AfPleaseWaitModalInit()
    }
 }
 
-function AfDialogBeginPleaseWait() {
+const :[fn~\w+] = () => {
    $("#idDialogOk").prop('disabled', true).addClass('ui-state-disabled');
 }
 
-function AfDialogEndPleaseWait() {
+const :[fn~\w+] = () => {
    $("#idDialogOk").prop('disabled', false).removeClass('ui-state-disabled');
 }

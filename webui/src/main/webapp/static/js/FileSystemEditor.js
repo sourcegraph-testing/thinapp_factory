@@ -32,7 +32,7 @@
  * a series of adds, deletes, and changes.
  * -----------------------------------------------------------------------------
  */
-function FileSystemEditor(
+const :[fn~\w+] = (
          buildId,
          directoryRootData,
          projectPath,
@@ -40,7 +40,7 @@ function FileSystemEditor(
          directLinkDiv,
          refreshButton,
          extendedMode,
-         changeMarker)
+         changeMarker) =>
 {
    this.buildId = buildId;
    this.directoryRootData = directoryRootData;
@@ -95,9 +95,9 @@ FileSystemEditor.prototype.DEFAULT_ISOLATION_MODE = "full";
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-Populate = function _populate(
+Populate = const :[fn~\w+] = (
       newDirectoryRootData,
-      newProjectPath)
+      newProjectPath) =>
 {
    AfLog('Populating file system editor');
 
@@ -199,10 +199,10 @@ Populate = function _populate(
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-ProcessChanges = function _processChanges(
+ProcessChanges = const :[fn~\w+] = (
       createFunction,
       editFunction,
-      deleteFunction)
+      deleteFunction) =>
 {
    var success = true;
 
@@ -244,11 +244,11 @@ ProcessChanges = function _processChanges(
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-processNode = function _processNode(
+processNode = const :[fn~\w+] = (
       createFunction,
       editFunction,
       node,
-      depth)
+      depth) =>
 {
    var dirData = node.data.directoryData;
    var debugPreamble = (dirData ? '.../' + dirData.path : node.label);
@@ -332,7 +332,7 @@ processNode = function _processNode(
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-loadDirectory = function _loadKey(node, loadCompleteCallback)
+loadDirectory = const :[fn~\w+] = (node, loadCompleteCallback) =>
 {
    // Get the FileSystemEditor instance
    var self = node.data.self;
@@ -408,10 +408,10 @@ loadDirectory = function _loadKey(node, loadCompleteCallback)
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-createNodeForDir = function _createNodeForDir(
+createNodeForDir = const :[fn~\w+] = (
       label,
       parentNode,
-      url)
+      url) =>
 {
    var node = new YAHOO.widget.TextNode(label, parentNode, false);
    node.data.self = this;
@@ -432,7 +432,7 @@ createNodeForDir = function _createNodeForDir(
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-populateData = function _populateData(node)
+populateData = const :[fn~\w+] = (node) =>
 {
    this.populateFiles(node);
    this.populateAttrs(node);
@@ -450,7 +450,7 @@ populateData = function _populateData(node)
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-populateFiles = function _populateFiles(node)
+populateFiles = const :[fn~\w+] = (node) =>
 {
    AfLog('Populating files for ' + node.label);
 
@@ -518,7 +518,7 @@ populateFiles = function _populateFiles(node)
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-populateAttrs = function _populateAttrs(node)
+populateAttrs = const :[fn~\w+] = (node) =>
 {
    AfLog('Populating attrs for ' + node.label);
 
@@ -621,11 +621,11 @@ populateAttrs = function _populateAttrs(node)
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-findNodeForData = function _findNodeForData(directoryData)
+findNodeForData = const :[fn~\w+] = (directoryData) =>
 {
    var match = null;
 
-   this.tree.getNodesBy(function _test(node) {
+   this.tree.getNodesBy(const :[fn~\w+] = (node) => {
       if (node.data.directoryData === directoryData) {
          match = node;
       }
@@ -646,7 +646,7 @@ findNodeForData = function _findNodeForData(directoryData)
  * -----------------------------------------------------------------------------
  */
 FileSystemEditor.prototype.
-parseDirectoryIdFromUrl = function _parseDirectoryIdFromUrl(url)
+parseDirectoryIdFromUrl = const :[fn~\w+] = (url) =>
 {
    return url.split('/').pop();
 };

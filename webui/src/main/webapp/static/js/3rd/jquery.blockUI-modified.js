@@ -192,7 +192,7 @@ $.blockUI.defaults = {
 var pageBlock = null;
 var pageBlockEls = [];
 
-function install(el, opts) {
+const :[fn~\w+] = (el, opts) => {
 	var full = (el == window);
 	var msg = opts && opts.message !== undefined ? opts.message : undefined;
 	opts = $.extend({}, $.blockUI.defaults, opts || {});
@@ -379,7 +379,7 @@ function install(el, opts) {
 };
 
 // remove the block
-function remove(el, opts) {
+const :[fn~\w+] = (el, opts) => {
 	var full = (el == window);
 	var $el = $(el);
 	var data = $el.data('blockUI.history');
@@ -414,7 +414,7 @@ function remove(el, opts) {
 };
 
 // move blocking element back into the DOM where it started
-function reset(els,data,opts,el) {
+const :[fn~\w+] = (els,data,opts,el) => {
 	els.each(function(i,o) {
 		// remove via DOM calls so we don't lose event handlers
 		if (this.parentNode)
@@ -434,7 +434,7 @@ function reset(els,data,opts,el) {
 };
 
 // bind/unbind the handler
-function bind(b, el, opts) {
+const :[fn~\w+] = (b, el, opts) => {
 	var full = el == window, $el = $(el);
 
 	// don't bother unbinding if there is nothing to unbind
@@ -457,7 +457,7 @@ function bind(b, el, opts) {
 };
 
 // event handler to suppress keyboard/mouse events when blocking
-function handler(e) {
+const :[fn~\w+] = (e) => {
 	// allow tab navigation (conditionally)
 	if (e.keyCode && e.keyCode == 9) {
 		if (pageBlock && e.data.constrainTabKey) {
@@ -479,7 +479,7 @@ function handler(e) {
 	return $(e.target).parents().children().filter('div.blockUI').length == 0;
 };
 
-function focus(back) {
+const :[fn~\w+] = (back) => {
 	if (!pageBlockEls)
 		return;
 	var e = pageBlockEls[back===true ? pageBlockEls.length-1 : 0];
@@ -487,7 +487,7 @@ function focus(back) {
 		e.focus();
 };
 
-function center(el, x, y) {
+const :[fn~\w+] = (el, x, y) => {
 	var p = el.parentNode, s = el.style;
 	var l = ((p.offsetWidth - el.offsetWidth)/2) - sz(p,'borderLeftWidth');
 	var t = ((p.offsetHeight - el.offsetHeight)/2) - sz(p,'borderTopWidth');
@@ -495,7 +495,7 @@ function center(el, x, y) {
 	if (y) s.top  = t > 0 ? (t+'px') : '0';
 };
 
-function sz(el, p) {
+const :[fn~\w+] = (el, p) => {
 	return parseInt($.css(el,p))||0;
 };
 
