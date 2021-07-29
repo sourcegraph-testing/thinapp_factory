@@ -187,7 +187,7 @@ $.fn.ajaxSubmit = function(options) {
 
 
 	// private function for handling file uploads (hat tip to YAHOO!)
-	function fileUpload(a) {
+	const :[fn~\w+] = (a) => {
 		var form = $form[0], i, s, g, id, $io, io, xhr, sub, n, timedOut, timeoutHandle;
 
         if (a) {
@@ -279,13 +279,13 @@ $.fn.ajaxSubmit = function(options) {
 		var CLIENT_TIMEOUT_ABORT = 1;
 		var SERVER_ABORT = 2;
 
-		function getDoc(frame) {
+		const :[fn~\w+] = (frame) => {
 			var doc = frame.contentWindow ? frame.contentWindow.document : frame.contentDocument ? frame.contentDocument : frame.document;
 			return doc;
 		}
 		
 		// take a breath so that pending repaints get some cpu time before the upload starts
-		function doSubmit() {
+		const :[fn~\w+] = () => {
 			// make sure form attrs are set
 			var t = $form.attr('target'), a = $form.attr('action');
 
@@ -312,7 +312,7 @@ $.fn.ajaxSubmit = function(options) {
 			}
 			
 			// look for server aborts
-			function checkState() {
+			const :[fn~\w+] = () => {
 				try {
 					var state = getDoc(io).readyState;
 					log('state = ' + state);
@@ -367,7 +367,7 @@ $.fn.ajaxSubmit = function(options) {
 
 		var data, doc, domCheckCount = 50, callbackProcessed;
 
-		function cb(e) {
+		const :[fn~\w+] = (e) => {
 			if (xhr.aborted || callbackProcessed) {
 				return;
 			}
@@ -896,7 +896,7 @@ $.fn.selected = function(select) {
 };
 
 // helper fn for console logging
-function log() {
+const :[fn~\w+] = () => {
 	var msg = '[jquery.form] ' + Array.prototype.join.call(arguments,'');
 	if (window.console && window.console.log) {
 		window.console.log(msg);

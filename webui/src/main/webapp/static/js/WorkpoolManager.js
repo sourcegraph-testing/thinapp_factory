@@ -23,7 +23,7 @@
  * A "class" that encapsulates all the methods for dealing with workpools.
  * -----------------------------------------------------------------------------
  */
-function WorkpoolManager(cloneSupported, isWS, table, status)
+const :[fn~\w+] = (cloneSupported, isWS, table, status) =>
 {
    this.refreshUrl = '/api/workpools';
    if (status) {
@@ -52,7 +52,7 @@ WorkpoolManager.prototype = new AbstractManager('Workpool');
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-UpdateWorkpool = function _updateWorkpool(refreshInterval)
+UpdateWorkpool = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       table: this.tableWrapper.dataTable,
@@ -74,7 +74,7 @@ UpdateWorkpool = function _updateWorkpool(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-GetWorkpoolAndPopulateEditForm = function _PopulateWorkpoolEditForm(workpoolId)
+GetWorkpoolAndPopulateEditForm = const :[fn~\w+] = (workpoolId) =>
 {
    var self = this;
 
@@ -99,7 +99,7 @@ GetWorkpoolAndPopulateEditForm = function _PopulateWorkpoolEditForm(workpoolId)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-PopulateEditWorkpoolForm = function _PopulateEditWorkpoolForm(workpool)
+PopulateEditWorkpoolForm = const :[fn~\w+] = (workpool) =>
 {
    // Set the workpool slider value and then the display value.
    var sliderDiv = $('#wp-slider');
@@ -158,7 +158,7 @@ PopulateEditWorkpoolForm = function _PopulateEditWorkpoolForm(workpool)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-InitDeleteSelectedWorkpool = function _initDeleteSelectedWorkpool(popupHolder)
+InitDeleteSelectedWorkpool = const :[fn~\w+] = (popupHolder) =>
 {
    var self = this;
    var workpools = this.tableWrapper.GetSelectedRowData();
@@ -240,9 +240,9 @@ InitDeleteSelectedWorkpool = function _initDeleteSelectedWorkpool(popupHolder)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-endDeleteWorkpoolPopup = function _endDeleteWorkpoolPopup(
+endDeleteWorkpoolPopup = const :[fn~\w+] = (
       popupHolder,
-      dataTableHolder)
+      dataTableHolder) =>
 {
    dataTableHolder.dataTable().fnDestroy();
    popupHolder.dialog('destroy');
@@ -262,7 +262,7 @@ endDeleteWorkpoolPopup = function _endDeleteWorkpoolPopup(
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-deleteSelectedWorkpool = function _deleteSelectedWorkpool(dialogDiv, dataTableDiv)
+deleteSelectedWorkpool = const :[fn~\w+] = (dialogDiv, dataTableDiv) =>
 {
    var self = this;
    var workpools = this.tableWrapper.GetSelectedRowData();
@@ -314,9 +314,9 @@ deleteSelectedWorkpool = function _deleteSelectedWorkpool(dialogDiv, dataTableDi
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-workpoolImageDeleteEligible = function _workpoolImageDeleteEligible(
+workpoolImageDeleteEligible = const :[fn~\w+] = (
       workpoolId,
-      workpoolName)
+      workpoolName) =>
 {
    var imageDeleteStatus = 'false';
    AfAjax({
@@ -352,7 +352,7 @@ workpoolImageDeleteEligible = function _workpoolImageDeleteEligible(
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-SubmitEditWorkpoolForm = function _SubmitEditWorkpoolForm(form)
+SubmitEditWorkpoolForm = const :[fn~\w+] = (form) =>
 {
    var json = AfSerializeForm(form);
    var self = this;
@@ -390,7 +390,7 @@ SubmitEditWorkpoolForm = function _SubmitEditWorkpoolForm(form)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-SubmitNewWorkpoolForm = function _submitNewWorkpoolForm(form)
+SubmitNewWorkpoolForm = const :[fn~\w+] = (form) =>
 {
    var self = this;
    AfLog('submitting new workpool');
@@ -433,7 +433,7 @@ SubmitNewWorkpoolForm = function _submitNewWorkpoolForm(form)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-handleWorkpoolError = function _handleWorkpoolError(jqXHR, textStatus, errorThrown)
+handleWorkpoolError = const :[fn~\w+] = (jqXHR, textStatus, errorThrown) =>
 {
    if (jqXHR.status == 409 && jqXHR.responseText.indexOf('CONFLICT_NAME') > -1) {
       AfErrorT('T.WORKPOOL.NAME.CONFLICT', 'M.WORKPOOL.NAME.CONFLICT');
@@ -457,7 +457,7 @@ handleWorkpoolError = function _handleWorkpoolError(jqXHR, textStatus, errorThro
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-createRows = function _createRows(self, jsonData, options)
+createRows = const :[fn~\w+] = (self, jsonData, options) =>
 {
    var workpools = jsonData.workpools;
    var wpDefaultId = jsonData['default'];
@@ -627,7 +627,7 @@ createRows = function _createRows(self, jsonData, options)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-decipherWorkpoolAndOsType = function _decipherWorkpoolAndOsType(workpool, translate)
+decipherWorkpoolAndOsType = const :[fn~\w+] = (workpool, translate) =>
 {
    var cipherData = new Object();
 
@@ -706,7 +706,7 @@ refresh = function() {
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-populateNetworkDropdown = function _populateNetworkDropdown(dropdownHolder)
+populateNetworkDropdown = const :[fn~\w+] = (dropdownHolder) =>
 {
    var self = this;
    var networkDiv = $('#'+ dropdownHolder);
@@ -724,7 +724,7 @@ populateNetworkDropdown = function _populateNetworkDropdown(dropdownHolder)
          networkDiv.empty().append('<img src="' + VmTAF.waitIcon + '"/>');
       },
 
-      success: function _populateVINetSuccess(jsonData) {
+      success: const :[fn~\w+] = (jsonData) => {
          // Create network dropdown.
          if (jsonData) {
             var options = [];
@@ -744,7 +744,7 @@ populateNetworkDropdown = function _populateNetworkDropdown(dropdownHolder)
          }
       },
 
-      error: function _populateVINetError(jqXHR, textStatus, errorThrown) {
+      error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
          var errSpan = $('<span>').text(AfTranslate('M.VI.LOAD.ERROR'));
          networkDiv.empty().append(errSpan);
       }
@@ -763,7 +763,7 @@ populateNetworkDropdown = function _populateNetworkDropdown(dropdownHolder)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-populateInventoryTree = function _populateInventoryTree(treeDiv, viNodeType)
+populateInventoryTree = const :[fn~\w+] = (treeDiv, viNodeType) =>
 {
    var self = this;
 
@@ -774,12 +774,12 @@ populateInventoryTree = function _populateInventoryTree(treeDiv, viNodeType)
          $('#'+ treeDiv).empty().append('<img src="' + VmTAF.waitIcon + '"/>');
       },
 
-      success: function _populateVIInvSuccess(jsonData) {
+      success: const :[fn~\w+] = (jsonData) => {
          // Create inventory tree...
          self.createTree(treeDiv, jsonData, viNodeType);
       },
 
-      error: function _populateVIInvError(jqXHR, textStatus, errorThrown) {
+      error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
          // Failed to connect, Notify user about this.
          var errSpan = $('<span>').text(AfTranslate('M.VI.LOAD.ERROR'));
          $('#'+ treeDiv).empty().append(errSpan);
@@ -851,7 +851,7 @@ createTree = function(treeDiv, jsonData, nodeType)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-browseVIDatastoreForISO = function _browseVIDatastoreForISO(node, onCompleteCallback)
+browseVIDatastoreForISO = const :[fn~\w+] = (node, onCompleteCallback) =>
 {
    var self = node.data.self;
    var tree = node.tree;
@@ -920,7 +920,7 @@ browseVIDatastoreForISO = function _browseVIDatastoreForISO(node, onCompleteCall
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-addTreeNode = function _addTreeNode(parentNode, invItem)
+addTreeNode = const :[fn~\w+] = (parentNode, invItem) =>
 {
    var nType = "";
    if (invItem.nodeType) {
@@ -971,7 +971,7 @@ addTreeNode = function _addTreeNode(parentNode, invItem)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-ToggleImageForm = function _toggleImageForm(radioObject, viBrowser)
+ToggleImageForm = const :[fn~\w+] = (radioObject, viBrowser) =>
 {
    var vmImageClass = radioObject.value;
    // Clear previous contents for the tree data to be populated
@@ -1025,7 +1025,7 @@ ToggleImageForm = function _toggleImageForm(radioObject, viBrowser)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-PopulateOsTypeDropdown = function _populateOsTypeDropdown(osTypeDiv)
+PopulateOsTypeDropdown = const :[fn~\w+] = (osTypeDiv) =>
 {
    var self = this;
 
@@ -1033,7 +1033,7 @@ PopulateOsTypeDropdown = function _populateOsTypeDropdown(osTypeDiv)
       url: '/api/workpools/osTypes',
       method: 'GET',
 
-      success: function _getOsTypeSuccess(jsonData) {
+      success: const :[fn~\w+] = (jsonData) => {
          // Create osType dropdown.
          if (jsonData) {
 
@@ -1071,7 +1071,7 @@ PopulateOsTypeDropdown = function _populateOsTypeDropdown(osTypeDiv)
          }
       },
 
-      error: function _getOsInfoError(jqXHR, textStatus, errorThrown) {
+      error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
          var errSpan = $('<span>').text(AfTranslate('M.OSTYPE.LOAD.ERROR'));
          osTypeDiv.empty().append(errSpan);
       }
@@ -1090,7 +1090,7 @@ PopulateOsTypeDropdown = function _populateOsTypeDropdown(osTypeDiv)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-ToggleOsTypeField = function _toggleOsTypeField(selectObject)
+ToggleOsTypeField = const :[fn~\w+] = (selectObject) =>
 {
    var variantDiv = $('.variant');
    if (selectObject.value == 'WinXPProOsType') {
@@ -1142,7 +1142,7 @@ ToggleOsTypeField = function _toggleOsTypeField(selectObject)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-ToggleLicenseForm = function _toggleLicenseForm(radioValue)
+ToggleLicenseForm = const :[fn~\w+] = (radioValue) =>
 {
    var osType = $('[name="@class"]').val();
    if(osType == 'WinXPProOsType') {
@@ -1189,7 +1189,7 @@ ToggleLicenseForm = function _toggleLicenseForm(radioValue)
  * -----------------------------------------------------------------------------
  */
 WorkpoolManager.prototype.
-disableKeyKmsServerInput = function _disableKeyKmsServerInput(vmImageClass)
+disableKeyKmsServerInput = const :[fn~\w+] = (vmImageClass) =>
 {
    // These types need one of license key / kms Server
    if (vmImageClass == 'selectVM' || vmImageClass == 'selectISO') {

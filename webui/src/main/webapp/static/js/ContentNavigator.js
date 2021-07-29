@@ -25,7 +25,7 @@
  * 'Back' and 'Forward' buttons.
  * -----------------------------------------------------------------------------
  */
-function ContentNavigator()
+const :[fn~\w+] = () =>
 {
    this.readyFunctions = [];
    this.cleanupFunctions = [];
@@ -54,7 +54,7 @@ function ContentNavigator()
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-InitializeOnLoad = function _initializeOnLoad()
+InitializeOnLoad = const :[fn~\w+] = () =>
 {
     if (!VmTAF.newUI) {
       window.dhtmlHistory.initialize();
@@ -84,7 +84,7 @@ InitializeOnLoad = function _initializeOnLoad()
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-SetLoadFunction = function _setLoadFunction(func)
+SetLoadFunction = const :[fn~\w+] = (func) =>
 {
    this.customLoadFunc = func;
 };
@@ -105,7 +105,7 @@ SetLoadFunction = function _setLoadFunction(func)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-LoadPage = function _loadPage(contentUrl, pleaseWaitMessage)
+LoadPage = const :[fn~\w+] = (contentUrl, pleaseWaitMessage) =>
 {
    var self = this;
 
@@ -136,7 +136,7 @@ LoadPage = function _loadPage(contentUrl, pleaseWaitMessage)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-GoBack = function _goBack()
+GoBack = const :[fn~\w+] = () =>
 {
    history.go(-1);
 };
@@ -155,7 +155,7 @@ GoBack = function _goBack()
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-AddReadyFunction = function _addReadyFunction(func)
+AddReadyFunction = const :[fn~\w+] = (func) =>
 {
    if (VmTAF.newUI) {
       // just call the function immediately
@@ -180,7 +180,7 @@ AddReadyFunction = function _addReadyFunction(func)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-AddVerifyFunction = function _addVerifyFunction(func)
+AddVerifyFunction = const :[fn~\w+] = (func) =>
 {
    this.verifyFunctions.push(func);
    return this.verifyFunctions.length - 1;
@@ -196,7 +196,7 @@ AddVerifyFunction = function _addVerifyFunction(func)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-RemoveVerifyFunction = function _removeVerifyFunction(index)
+RemoveVerifyFunction = const :[fn~\w+] = (index) =>
 {
    if (index > -1 && index < this.verifyFunctions.length) {
       this.verifyFunctions[index] = null;
@@ -217,7 +217,7 @@ RemoveVerifyFunction = function _removeVerifyFunction(index)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-AddCleanupFunction = function _addCleanupFunction(func)
+AddCleanupFunction = const :[fn~\w+] = (func) =>
 {
    this.cleanupFunctions.push(func);
 };
@@ -232,9 +232,9 @@ AddCleanupFunction = function _addCleanupFunction(func)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-historyChangeListener = function _historyChangeListener(
+historyChangeListener = const :[fn~\w+] = (
       newLocation,
-      historyData)
+      historyData) =>
 {
    /* If no data, we must be going to the page before TAF */
    if (historyData == null) {
@@ -269,7 +269,7 @@ historyChangeListener = function _historyChangeListener(
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-loadContent = function _loadContent(contentUrl, pleaseWaitMessage)
+loadContent = const :[fn~\w+] = (contentUrl, pleaseWaitMessage) =>
 {
    var self = this;
    var mainPanel = $('#main-panel');
@@ -332,7 +332,7 @@ loadContent = function _loadContent(contentUrl, pleaseWaitMessage)
             }
          },
 
-         success: function _mainFragmentOk(html) {
+         success: const :[fn~\w+] = (html) => {
             /* Update main panel with this HTML */
             mainPanel
                .empty()
@@ -354,7 +354,7 @@ loadContent = function _loadContent(contentUrl, pleaseWaitMessage)
             self.readyFunctions = [];
          },
 
-         error: function _mainFragmentError() {
+         error: const :[fn~\w+] = () => {
             AfLog('fragment load failed!');
             AfError(
                   'Page Load Failed',
@@ -386,7 +386,7 @@ loadContent = function _loadContent(contentUrl, pleaseWaitMessage)
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-InstallDefaultEventHandlers = function _installDefaultEventHandlers()
+InstallDefaultEventHandlers = const :[fn~\w+] = () =>
 {
    /*
     * Reset (hide) all refresh indicators
@@ -410,7 +410,7 @@ InstallDefaultEventHandlers = function _installDefaultEventHandlers()
  * -----------------------------------------------------------------------------
  */
 ContentNavigator.prototype.
-loadPageImpl = function _loadPageImpl(self, contentUrl, pleaseWaitMessage)
+loadPageImpl = const :[fn~\w+] = (self, contentUrl, pleaseWaitMessage) =>
 {
    /* We don't need to custom load function any more */
    self.customLoadFunc = null;

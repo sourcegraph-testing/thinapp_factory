@@ -32,7 +32,7 @@
  * a series of adds, deletes, and changes.
  * -----------------------------------------------------------------------------
  */
-function RegistryEditor(buildId, registryRootData, editorDiv, changeMarker)
+const :[fn~\w+] = (buildId, registryRootData, editorDiv, changeMarker) =>
 {
    this.buildId = buildId;
    this.registryRootData = registryRootData;
@@ -85,7 +85,7 @@ RegistryEditor.prototype.DEFAULT_ISOLATION_MODE = "full";
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-Populate = function _populate()
+Populate = const :[fn~\w+] = () =>
 {
    AfLog('Populating registry editor');
 
@@ -157,7 +157,7 @@ Populate = function _populate()
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-CreateKey = function _createKey()
+CreateKey = const :[fn~\w+] = () =>
 {
    AfLog('creating new registry key');
 
@@ -232,7 +232,7 @@ CreateKey = function _createKey()
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-RenameKey = function _renameKey(otherNode)
+RenameKey = const :[fn~\w+] = (otherNode) =>
 {
    /* Pick the otherNode, if invalid get the selected key to rename */
    var node = otherNode || this.tree.getHighlightedNode();
@@ -285,7 +285,7 @@ RenameKey = function _renameKey(otherNode)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-DuplicateKey = function _duplicateKey()
+DuplicateKey = const :[fn~\w+] = () =>
 {
    /* Get the selected key to delete */
    var node = this.tree.getHighlightedNode();
@@ -351,7 +351,7 @@ DuplicateKey = function _duplicateKey()
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-duplicateSubTree = function _duplicateSubTree(source, dest)
+duplicateSubTree = const :[fn~\w+] = (source, dest) =>
 {
    /* Path does not exist for root node. */
    var path = (dest.parent == this.rootNode)?
@@ -402,7 +402,7 @@ duplicateSubTree = function _duplicateSubTree(source, dest)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-updatePathForSubTree = function _updatePathForSubTree(node)
+updatePathForSubTree = const :[fn~\w+] = (node) =>
 {
    /* Path does not exist for root node. */
    var path = (node.parent == this.rootNode)?
@@ -430,7 +430,7 @@ updatePathForSubTree = function _updatePathForSubTree(node)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-loadSubTree = function _loadSubTree(node)
+loadSubTree = const :[fn~\w+] = (node) =>
 {
    // When not a root node and data doesnt exist, Load data for this node.
    if(node != this.rootNode && node.data.registryData == null) {
@@ -454,7 +454,7 @@ loadSubTree = function _loadSubTree(node)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-DeleteKey = function _deleteKey()
+DeleteKey = const :[fn~\w+] = () =>
 {
    /* Get the selected key to delete */
    var node = this.tree.getHighlightedNode();
@@ -510,7 +510,7 @@ DeleteKey = function _deleteKey()
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-CreateValue = function _createValue(dialogHolderId, buildManager)
+CreateValue = const :[fn~\w+] = (dialogHolderId, buildManager) =>
 {
    /* Get the selected key to be the parent */
    var self = this;
@@ -570,7 +570,7 @@ CreateValue = function _createValue(dialogHolderId, buildManager)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-DeleteValue = function _deleteValue(valueName)
+DeleteValue = const :[fn~\w+] = (valueName) =>
 {
    /* Get the selected key (whose value is to be deleted) */
    var node = this.tree.getHighlightedNode();
@@ -606,10 +606,10 @@ DeleteValue = function _deleteValue(valueName)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-ProcessChanges = function _processChanges(
+ProcessChanges = const :[fn~\w+] = (
       createFunction,
       editFunction,
-      deleteFunction)
+      deleteFunction) =>
 {
    AfLog('---- REGISTRY TREE EDITS: -----');
    this.processNode(createFunction, editFunction, this.rootNode, 0);
@@ -642,11 +642,11 @@ ProcessChanges = function _processChanges(
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-processNode = function _processNode(
+processNode = const :[fn~\w+] = (
       createFunction,
       editFunction,
       node,
-      depth)
+      depth) =>
 {
    var regData = node.data.registryData;
    var debugPreamble = (regData ? '.../' + regData.path : node.label);
@@ -731,7 +731,7 @@ processNode = function _processNode(
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-loadKey = function _loadKey(node, loadCompleteCallback)
+loadKey = const :[fn~\w+] = (node, loadCompleteCallback) =>
 {
    // Get the RegistryEditor instance
    var self = node.data.self;
@@ -808,11 +808,11 @@ loadKey = function _loadKey(node, loadCompleteCallback)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-createNodeForKey = function _createNodeForKey(
+createNodeForKey = const :[fn~\w+] = (
       label,
       parentNode,
       url,
-      hasChildren)
+      hasChildren) =>
 {
    /* YUI isLeaf is buggy. YUI removes dynamic load, which gives way to
     * the anchor's href="#", causing the build page refresh in our case.
@@ -843,7 +843,7 @@ createNodeForKey = function _createNodeForKey(
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-PopulateValues = function _PopulateValues(node)
+PopulateValues = const :[fn~\w+] = (node) =>
 {
    var self = this;
    var legend = this.valuesDiv.find('legend');
@@ -1032,7 +1032,7 @@ PopulateValues = function _PopulateValues(node)
 
 
 RegistryEditor.prototype.
-setValueData = function _setValueData(registryValue, data)
+setValueData = const :[fn~\w+] = (registryValue, data) =>
 {
    var jsType = typeof(data);
 
@@ -1084,11 +1084,11 @@ setValueData = function _setValueData(registryValue, data)
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-findNodeForData = function _findNodeForData(registryData)
+findNodeForData = const :[fn~\w+] = (registryData) =>
 {
    var match = null;
 
-   this.tree.getNodesBy(function _test(node) {
+   this.tree.getNodesBy(const :[fn~\w+] = (node) => {
       if (node.data.registryData === registryData) {
          match = node;
       }
@@ -1140,7 +1140,7 @@ ValidateUniqueRegNameCallback = function _validateUniqueRegNameCallback (
  * -----------------------------------------------------------------------------
  */
 RegistryEditor.prototype.
-parseRegistryIdFromUrl = function _parseRegistryIdFromUrl(url)
+parseRegistryIdFromUrl = const :[fn~\w+] = (url) =>
 {
    return url.split(this.REG_PATH_SEPARATOR).pop();
 };

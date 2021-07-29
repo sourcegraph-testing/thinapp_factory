@@ -28,7 +28,7 @@
  * @param logLevel - a log level {info, error, or debug (default)}
  * -----------------------------------------------------------------------------
  */
-function AfLog(message, logLevel)
+const :[fn~\w+] = (message, logLevel) =>
 {
    if (!LOGGING_ENABLED) {
       return;
@@ -59,7 +59,7 @@ function AfLog(message, logLevel)
  * @param args Used to replace placeholders: {0}, {1} in the translated text.
  * -----------------------------------------------------------------------------
  */
-function AfTranslate(key, args)
+const :[fn~\w+] = (key, args) =>
 {
    var txt = '';
 
@@ -107,7 +107,7 @@ function AfTranslate(key, args)
  * @returns string format value.
  * -----------------------------------------------------------------------------
  */
-function replacer(key, value) {
+const :[fn~\w+] = (key, value) => {
    if (typeof value === 'number' && !isFinite(value)) {
       return String(value);
    }
@@ -122,7 +122,7 @@ function replacer(key, value) {
  * Assert that a condition is true, else report the given message.
  * -----------------------------------------------------------------------------
  */
-function AfAssert(condition, message)
+const :[fn~\w+] = (condition, message) =>
 {
    if (!condition) alert('ASSERT FAIL: ' + message);
 }
@@ -135,7 +135,7 @@ function AfAssert(condition, message)
  * Wrapper function to POST JSON data using Ajax.
  * -----------------------------------------------------------------------------
  */
-function AfAjaxPostJson(url, data, successFunc, errorFunc)
+const :[fn~\w+] = (url, data, successFunc, errorFunc) =>
 {
    return AfAjax({
       method:        'POST',
@@ -155,7 +155,7 @@ function AfAjaxPostJson(url, data, successFunc, errorFunc)
  * Wrapper function to GET some JSON data using Ajax.
  * -----------------------------------------------------------------------------
  */
-function AfAjaxGetJson(url, successFunc, errorFunc)
+const :[fn~\w+] = (url, successFunc, errorFunc) =>
 {
    return AfAjax({
       method:     'GET',
@@ -176,7 +176,7 @@ function AfAjaxGetJson(url, successFunc, errorFunc)
  * cleans up some of the more common tasks.
  * -----------------------------------------------------------------------------
  */
-function AfAjax(options)
+const :[fn~\w+] = (options) =>
 {
    // Default arguments to the ajax call
    var args = { };
@@ -209,7 +209,7 @@ function AfAjax(options)
    // Inject an error handler
    var errorCallback = args['error'],
        handleDisconnected = args['handleDisconnected'] || false;
-   args['error'] = function _errorIntercept(jqXHR, textStatus, errorThrown) {
+   args['error'] = const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
       var msg = 'AJAX FAILURE:' +
          ' status=' + jqXHR.status +
          ' statusText=' + textStatus +
@@ -240,7 +240,7 @@ function AfAjax(options)
  *    Otherwise, it will show an AfError message and return false.
  * -----------------------------------------------------------------------------
  */
-function AfCheckLicense(jqXHR)
+const :[fn~\w+] = (jqXHR) =>
 {
    if (jqXHR && jqXHR.status == VmTAF.licenseExpiredErrorCode) {
       AfError(
@@ -262,7 +262,7 @@ function AfCheckLicense(jqXHR)
  * @see afutils.AfAjax()
  * -----------------------------------------------------------------------------
  */
-function AfAjaxDefaultErrorHandler(jqXHR, textStatus, errorThrown, settings)
+const :[fn~\w+] = (jqXHR, textStatus, errorThrown, settings) =>
 {
    if (window.VmTAF.rebooting) {
       // do nothing, because the appliance is known to be temporarily unavailable
@@ -349,7 +349,7 @@ function AfAjaxDefaultErrorHandler(jqXHR, textStatus, errorThrown, settings)
  * @param func Function to be invoked on the window.onload event.
  * -----------------------------------------------------------------------------
  */
-function AfAddOnLoadEvent(func)
+const :[fn~\w+] = (func) =>
 {
    var oldFunc = window.onload;
 
@@ -380,7 +380,7 @@ function AfAddOnLoadEvent(func)
  * @param imageSize
  * -----------------------------------------------------------------------------
  */
-function AfBestAppIcon(icons, imageSize)
+const :[fn~\w+] = (icons, imageSize) =>
 {
    var bestIcon = null;
    var bestDelta = 0;
@@ -410,7 +410,7 @@ function AfBestAppIcon(icons, imageSize)
  * Determines the best icon for the given imageSize, if provided.  Returns the first icon
  * if imageSize is not provided.  if icons is undefined, returns the default icon url.
  */
-function AfGetIconUrl(icons, imageSize)
+const :[fn~\w+] = (icons, imageSize) =>
 {
    // Start off with the default icon
    var iconUrl = window.VmTAF.defaultIcon.url;
@@ -470,7 +470,7 @@ function AfGetIconUrl(icons, imageSize)
  *   </div>
  * -----------------------------------------------------------------------------
  */
-function AfCreateApplicationBlock(app, imageSize, editLink)
+const :[fn~\w+] = (app, imageSize, editLink) =>
 {
    var iconUrl = AfGetIconUrl(app.icons);
 
@@ -540,7 +540,7 @@ function AfCreateApplicationBlock(app, imageSize, editLink)
  * @param iconSize The size of icon to display. Default: VmTAF.iconSizeSmall
  * -----------------------------------------------------------------------------
  */
-function AfCreateApplicationInline(app, withExtras, iconSize)
+const :[fn~\w+] = (app, withExtras, iconSize) =>
 {
    var nameDiv = $('<div></div>').text(app.name);
    nameDiv.addClass('app-name');
@@ -591,7 +591,7 @@ function AfCreateApplicationInline(app, withExtras, iconSize)
  * Keeps reducing until the value is less than 1024 or the units is Tb.
  * -----------------------------------------------------------------------------
  */
-function AfSimplifyDiskSize(bytes)
+const :[fn~\w+] = (bytes) =>
 {
    var value = bytes;
    var units = 'b';
@@ -617,7 +617,7 @@ function AfSimplifyDiskSize(bytes)
  * @depricated use AfCreateOrUpdateProgressBar
  * -----------------------------------------------------------------------------
  */
-function AfCreateProgressBarDivColor(text, percent, color1, color1Stop, color2, color2Stop, color3)
+const :[fn~\w+] = (text, percent, color1, color1Stop, color2, color2Stop, color3) =>
 {
    return AfCreateOrUpdateProgressBar(
          null, text, percent,
@@ -638,7 +638,7 @@ function AfCreateProgressBarDivColor(text, percent, color1, color1Stop, color2, 
  * @see AfCreateOrUpdateProgressBar
  * -----------------------------------------------------------------------------
  */
-function AfCreateProgressBarDiv(text, percent, color)
+const :[fn~\w+] = (text, percent, color) =>
 {
    return AfProgressBar({
       label: text,
@@ -668,11 +668,11 @@ function AfCreateProgressBarDiv(text, percent, color)
  *                    Progress bar is color3 when color2Stop < percent <= 100
  * -----------------------------------------------------------------------------
  */
-function AfCreateOrUpdateProgressBar(
+const :[fn~\w+] = (
       holderDiv, text, percent,
       color1, color1Stop,
       color2, color2Stop,
-      color3)
+      color3) =>
 {
    var colorClass;
    if (typeof color2Stop === 'number' &&  percent > color2Stop) {
@@ -743,7 +743,7 @@ function AfCreateOrUpdateProgressBar(
  *                             (Only one of widthArray / size can be used.)
  * -----------------------------------------------------------------------------
  */
-function AfProgressBar(args)
+const :[fn~\w+] = (args) =>
 {
    if (!args) {
       return;
@@ -831,7 +831,7 @@ function AfProgressBar(args)
 
          // Push 0 as the init stage before stage 1 and sort the data.
          widthArray.push(0);
-         widthArray.sort(function sortNumberAsc(a, b) {
+         widthArray.sort(const :[fn~\w+] = (a, b) => {
                return a - b;
             });
 
@@ -877,7 +877,7 @@ function AfProgressBar(args)
  * @param regexToSkip - a regular expression to skip elements in the process.
  * -----------------------------------------------------------------------------
  */
-function AfSerializeForm(form, regexToSkip)
+const :[fn~\w+] = (form, regexToSkip) =>
 {
    if (!form.find) {
       form = $(form);
@@ -965,7 +965,7 @@ function AfSerializeForm(form, regexToSkip)
  * @param args Placeholder replacement value(s) for translation text
  * -----------------------------------------------------------------------------
  */
-function AfAlertT(titleKey, messageKey, args)
+const :[fn~\w+] = (titleKey, messageKey, args) =>
 {
    /* If there's only one argument, it was a message, not a title */
    if (!messageKey) {
@@ -991,7 +991,7 @@ function AfAlertT(titleKey, messageKey, args)
  * @param message to be displayed in the AfAlert dialog.
  * -----------------------------------------------------------------------------
  */
-function AfAlert(title, message)
+const :[fn~\w+] = (title, message) =>
 {
    alert(message);
 
@@ -1010,7 +1010,7 @@ function AfAlert(title, message)
  * @param message to be displayed in the AfError dialog.
  * -----------------------------------------------------------------------------
  */
-function AfShowAlert(title, message)
+const :[fn~\w+] = (title, message) =>
 {
    AfShowMessageDialog({
       title: title,
@@ -1045,7 +1045,7 @@ function AfShowAlert(title, message)
  *             to close the dialog or 'false' to keep it open.
  * -----------------------------------------------------------------------------
  */
-function AfShowMessageDialog(args)
+const :[fn~\w+] = (args) =>
 {
    var buttons = [];
 
@@ -1094,7 +1094,7 @@ function AfShowMessageDialog(args)
  * @param args Placeholder replacement value(s) for translation text
  * -----------------------------------------------------------------------------
  */
-function AfConfirmT(titleKey, messageKey, args)
+const :[fn~\w+] = (titleKey, messageKey, args) =>
 {
    /* If there's only one argument, it was a message, not a title */
    if (!messageKey) {
@@ -1120,7 +1120,7 @@ function AfConfirmT(titleKey, messageKey, args)
  * @param message to be displayed in the dialog.
  * -----------------------------------------------------------------------------
  */
-function AfConfirm(title, message)
+const :[fn~\w+] = (title, message) =>
 {
    return confirm(message);
 }
@@ -1137,7 +1137,7 @@ function AfConfirm(title, message)
  * @param message to be displayed in the dialog.
  * -----------------------------------------------------------------------------
  */
-function AfPrompt(title, message, defaultText)
+const :[fn~\w+] = (title, message, defaultText) =>
 {
    if (!defaultText) {
       defaultText = "";
@@ -1159,7 +1159,7 @@ function AfPrompt(title, message, defaultText)
  * hidden when succeeded, and highlighted when failed.
  * -----------------------------------------------------------------------------
  */
-function AfRefreshFlagStart()
+const :[fn~\w+] = () =>
 {
    $('.refresh-indicator').each(function() {
       $(this).removeClass("error");
@@ -1168,7 +1168,7 @@ function AfRefreshFlagStart()
 }
 
 
-function AfRefreshFlagSuccess()
+const :[fn~\w+] = () =>
 {
    $('.refresh-indicator').each(function() {
       $(this).stop(true, true).hide();
@@ -1176,7 +1176,7 @@ function AfRefreshFlagSuccess()
 }
 
 
-function AfRefreshFlagError()
+const :[fn~\w+] = () =>
 {
    $('.refresh-indicator').each(function() {
       $(this).addClass("error");
@@ -1197,7 +1197,7 @@ function AfRefreshFlagError()
  * TODO: cactus -> cacti
  * -----------------------------------------------------------------------------
  */
-function AfPluralOf(noun, count)
+const :[fn~\w+] = (noun, count) =>
 {
    if (count && count == 1) {
       return noun;
@@ -1221,7 +1221,7 @@ function AfPluralOf(noun, count)
  * the length of the 'items' array. The noun should be singular.
  * -----------------------------------------------------------------------------
  */
-function AfThisOrThese(items, noun)
+const :[fn~\w+] = (items, noun) =>
 {
    if (items.length == 0) {
       return 'no ' + AfPluralOf(noun);
@@ -1243,7 +1243,7 @@ function AfThisOrThese(items, noun)
  * this returns the element itself, not just its contents.
  * -----------------------------------------------------------------------------
  */
-function AfHtml(element)
+const :[fn~\w+] = (element) =>
 {
    return $('<div></div>').append(element).html();
 }
@@ -1260,7 +1260,7 @@ function AfHtml(element)
  * @see AfNotify for the remaining params.
  * -----------------------------------------------------------------------------
  */
-function AfNotifyT(title, message, divClass, args)
+const :[fn~\w+] = (title, message, divClass, args) =>
 {
    if (message) {
       message = AfTranslate(message, args);
@@ -1288,7 +1288,7 @@ function AfNotifyT(title, message, divClass, args)
  *          error   - display in error mode (red text, error icon).
  * -----------------------------------------------------------------------------
  */
-function AfNotify(title, message, divClass)
+const :[fn~\w+] = (title, message, divClass) =>
 {
    if (!message) {
       // nothing to notify, return.
@@ -1352,7 +1352,7 @@ function AfNotify(title, message, divClass)
  * @param opt_param - an optional param for the window.open(...,...,opt_param)
  * -----------------------------------------------------------------------------
  */
-function AfCheckPopupBlockerAndOpenUrlInNewWindow(url, name, opt_param)
+const :[fn~\w+] = (url, name, opt_param) =>
 {
    var popup = window.open(url, name, opt_param);
 
@@ -1385,7 +1385,7 @@ function AfCheckPopupBlockerAndOpenUrlInNewWindow(url, name, opt_param)
  *         of seconds
  * -----------------------------------------------------------------------------
  */
-function AfTimeSpan(seconds)
+const :[fn~\w+] = (seconds) =>
 {
    var SECONDS_PER_MINUTE = 60;
    var SECONDS_PER_HOUR = 3600;
@@ -1399,7 +1399,7 @@ function AfTimeSpan(seconds)
    seconds -= SECONDS_PER_MINUTE * minutes;
 
    // trivial, just adds 's'
-   function pluralize(val, singlularString) {
+   const :[fn~\w+] = (val, singlularString) => {
       return (val === 1) ? [ val, ' ', singlularString].join('')
                          : [ val, ' ', singlularString, 's'].join('');
    }
@@ -1423,7 +1423,7 @@ function AfTimeSpan(seconds)
  * @returns {Boolean}
  * -----------------------------------------------------------------------------
  */
-function AfOpenPopupWindow(url, name)
+const :[fn~\w+] = (url, name) =>
 {
    // Extract ticketId from the url to uniquely launch VMRC client pop-up.
    // E.g. url => '/manualMode/index?appId=347&ticketId=34'
@@ -1454,7 +1454,7 @@ function AfOpenPopupWindow(url, name)
  *            (80 times) - This is high as the server may take time to initialize progressListener
  * -----------------------------------------------------------------------------
  */
-function AfPollProgressAndUpdate(progressDiv, uploadId, pollFrequency, failRetryCount)
+const :[fn~\w+] = (progressDiv, uploadId, pollFrequency, failRetryCount) =>
 {
    // The timeouts and stopPollCounter should atleast addup to 2seconds for server to initialize.
    var pollTime = (typeof pollFrequency === 'number')? pollFrequency : 400;
@@ -1528,7 +1528,7 @@ function AfPollProgressAndUpdate(progressDiv, uploadId, pollFrequency, failRetry
  * @returns an input element.
  * -----------------------------------------------------------------------------
  */
-function AfCreateInputText(input)
+const :[fn~\w+] = (input) =>
 {
    var element = $('<input type="text" value="' + input.value + '" />');
    return AfAddAttributes(element, input);
@@ -1545,7 +1545,7 @@ function AfCreateInputText(input)
  * @returns an input element.
  * -----------------------------------------------------------------------------
  */
-function AfCreateInputCheckbox(input)
+const :[fn~\w+] = (input) =>
 {
    return AfAddAttributes($('<input type="checkbox"/>'), input);
 }
@@ -1577,7 +1577,7 @@ function AfCreateInputCheckbox(input)
  * @returns the select element.
  * -----------------------------------------------------------------------------
  */
-function AfCreatePulldown(args)
+const :[fn~\w+] = (args) =>
 {
    var select = $('<select></select>');
 
@@ -1603,7 +1603,7 @@ function AfCreatePulldown(args)
  * @see AfCreatePulldown.options for further details.
  * -----------------------------------------------------------------------------
  */
-function AfCreatePulldownOption(selectedValue, option)
+const :[fn~\w+] = (selectedValue, option) =>
 {
    var optElement;
    var display = (option.translate)? AfTranslate(option.display) : option.display;
@@ -1645,7 +1645,7 @@ function AfCreatePulldownOption(selectedValue, option)
  * @returns the given element.
  * -----------------------------------------------------------------------------
  */
-function AfAddAttributes(element, input)
+const :[fn~\w+] = (element, input) =>
 {
    var attrs = ['name', 'id', 'placeholder', 'validate' , 'size', 'cssClass', 'isArray', 'subproperty'];
    $.each(attrs, function(index, name){
@@ -1676,7 +1676,7 @@ function AfAddAttributes(element, input)
  * @param validateUniqueParam - params for validate callback.
  * -----------------------------------------------------------------------------
  */
-function AfPromptForUniqueName(validateUniqueCallback, callbackParam)
+const :[fn~\w+] = (validateUniqueCallback, callbackParam) =>
 {
    var newName = null;
    do {
@@ -1714,7 +1714,7 @@ function AfPromptForUniqueName(validateUniqueCallback, callbackParam)
  * @param name - Optional name to add next to icon.
  * -----------------------------------------------------------------------------
  */
-function AfCreateDataSourceSpan(type, name)
+const :[fn~\w+] = (type, name) =>
 {
     var srcImgHtml = [
       '<span class="data-source-icon data-source-type-',
@@ -1739,7 +1739,7 @@ function AfCreateDataSourceSpan(type, name)
  * NOTE: 'share' will *not* contain a leading slash.
  * -----------------------------------------------------------------------------
  */
-function AfSplitServerShare(json)
+const :[fn~\w+] = (json) =>
 {
    if (!json.serverShare) {
       return;
@@ -1779,7 +1779,7 @@ function AfSplitServerShare(json)
  * @returns {Boolean}
  * -----------------------------------------------------------------------------
  */
-function CheckVmrcSupportedBrowser()
+const :[fn~\w+] = () =>
 {
    var browserType = $.browser;
    // TODO: find out supported versions for FF, and add the version check.
@@ -1804,7 +1804,7 @@ function CheckVmrcSupportedBrowser()
  *            .showHiddenCount  - (optional) display hidden row count as (x).
  * -----------------------------------------------------------------------------
  */
-function hideNthRowAddLinkToExpandCollapse(args)
+const :[fn~\w+] = (args) =>
 {
    if (!args || !args.ulElementId || !args.visibleRowCount) {
       AfLog('Missing key input data');
@@ -1864,7 +1864,7 @@ function hideNthRowAddLinkToExpandCollapse(args)
  * TODO - 1. Implement a lot of flexible params that lack in this implementation.
  *        2. GET rid of global onTafDialogOk function.
  */
-function AfMakeAsyncDialog(idDialog, idButton, url, title, button) {
+const :[fn~\w+] = (idDialog, idButton, url, title, button) => {
    var dialogOpts = {
       title: title,
       modal: true,
@@ -1918,14 +1918,14 @@ function AfMakeAsyncDialog(idDialog, idButton, url, title, button) {
       return false;
    });
 }
-function AfRefreshTimestamps() {
+const :[fn~\w+] = () => {
    jQuery.each(this.find('.timeago'), function(idx,el) {
       if (el.title) {
          $(el).text(AfTimelabel(el.title));
       }
    });
 }
-function AfInitStackEditor(root) {
+const :[fn~\w+] = (root) => {
    if (!window.VmTAF.newUI) {
       return;
    }
@@ -1947,7 +1947,7 @@ function AfInitStackEditor(root) {
    setInterval(jQuery.proxy(AfRefreshTimestamps,root), 60000);
 }
 
-function AfTimelabel(timestamp) {
+const :[fn~\w+] = (timestamp) => {
    if (timestamp <= 0) {
       return "Never";
    } else {
@@ -1972,7 +1972,7 @@ function AfTimelabel(timestamp) {
  *
  * @param timestamp  milliseconds since 1970/01/01 UTC
  */
-function AfTimeago(timestamp) {
+const :[fn~\w+] = (timestamp) => {
    return [
       '<span class="timeago" title="',
       timestamp,
@@ -2052,7 +2052,7 @@ var Plugin = {
  * Check whether the browser has VMRC plugin or not.
  * @returns true if the plugin is installed; otherwise, return false.
  */
-function HasVMRCPlugin() {
+const :[fn~\w+] = () => {
    Plugin.checkIE();
 
    if (Plugin.isIE) {
@@ -2076,7 +2076,7 @@ function HasVMRCPlugin() {
  * @param message an error message to be displayed.
  * -----------------------------------------------------------------------------
  */
-function AfError(title, message) {
+const :[fn~\w+] = (title, message) => {
    if (!message) {
       message = title;
       title = 'Error';
@@ -2106,7 +2106,7 @@ function AfError(title, message) {
  * @param messageKey a message key of resource bundle.
  * @param args optional arguments.
  */
-function AfErrorT(titleKey, messageKey, args) {
+const :[fn~\w+] = (titleKey, messageKey, args) => {
    /* If there's only one argument, it was a message, not a title */
    if (!messageKey) {
       messageKey = titleKey;
@@ -2127,7 +2127,7 @@ function AfErrorT(titleKey, messageKey, args) {
  * @returns a label with str element if the length is within the limit.
  *    Otherwise, it returns a label (XXXX...) with a tooltip to see the rest of the text.
  */
-function AfOverflowToTooltip(str, max) {
+const :[fn~\w+] = (str, max) => {
    if (!str || str.length < 1) {
       return null;
    }
@@ -2151,7 +2151,7 @@ function AfOverflowToTooltip(str, max) {
  *
  * @param url a manual capture url
  */
-function AfOpenManualCaptureWindow(url) {
+const :[fn~\w+] = (url) => {
    if (!CheckVmrcSupportedBrowser()) {
       AfErrorT('T.APPS.MM.BROWSER_NOT_SUP', 'M.APPS.MM.BROWSER_NOT_SUP');
    } else if (!HasVMRCPlugin()) {
@@ -2183,7 +2183,7 @@ function AfOpenManualCaptureWindow(url) {
  * @return the last non-empty component, per the above rules.
  * If such a component does not exist, returns the input string.
  */
-function AfShortNameFromUri(uri) {
+const :[fn~\w+] = (uri) => {
 
    var ary = uri.split('/');
 
@@ -2203,7 +2203,7 @@ function AfShortNameFromUri(uri) {
    return ary[ary.length - 1] || uri;
 }
 
-function AfShortUri(uri) {
+const :[fn~\w+] = (uri) => {
    var name = AfShortNameFromUri(uri);
    // matches both http and https
    if (0 == uri.indexOf("http")) {
@@ -2238,7 +2238,7 @@ function AfShortUri(uri) {
  * @param str2
  * @returns
  */
-function CompareAlnumVersionString(str1,str2) {
+const :[fn~\w+] = (str1,str2) => {
    var s1Index = 0, s2Index = 0, s1Length = str1.length, s2Length = str2.length;
 
    while (s1Index < s1Length && s2Index < s2Length) {
@@ -2266,7 +2266,7 @@ function CompareAlnumVersionString(str1,str2) {
  * @param index
  * @returns
  */
-function GetDigitOrNonDigitChunk(s, index) {
+const :[fn~\w+] = (s, index) => {
    var c = s.charAt(index);
    var result = c;
    index++;

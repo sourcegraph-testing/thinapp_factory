@@ -24,7 +24,7 @@
  * with configuration.
  * -----------------------------------------------------------------------------
  */
-function ConfigManager()
+const :[fn~\w+] = () =>
 {
    this.superDestruct = AbstractManager.prototype.Destruct;
 }
@@ -59,7 +59,7 @@ Destruct = function()
  * -----------------------------------------------------------------------------
  */
 ConfigManager.prototype.
-CreateEditor = function _createEditor(insertPoint)
+CreateEditor = const :[fn~\w+] = (insertPoint) =>
 {
    var self = this;
 
@@ -93,10 +93,10 @@ CreateEditor = function _createEditor(insertPoint)
  * -----------------------------------------------------------------------------
  */
 ConfigManager.prototype.
-getChangeFunc = function _getChangeFunc(key) {
+getChangeFunc = const :[fn~\w+] = (key) => {
    switch(key) {
       case 'horizon.enabled':
-         return function _horizonEnabledSet(val, changeData) {
+         return const :[fn~\w+] = (val, changeData) => {
             if (val) {
                // Trigger a click on the horizon configuration link to launch the dialog.
                $('#idHorizonConfigLink').trigger('click');
@@ -115,7 +115,7 @@ getChangeFunc = function _getChangeFunc(key) {
  * -----------------------------------------------------------------------------
  */
 ConfigManager.prototype.
-Validate = function _validate(key) {
+Validate = const :[fn~\w+] = (key) => {
    switch(key) {
       case 'cws.stall_timeout': return { integer:true, range: [1, 86400] }; // from 1 sec to 24 hrs.
       case 'cws.stall_cpu':
@@ -144,7 +144,7 @@ Validate = function _validate(key) {
  * -----------------------------------------------------------------------------
  */
 ConfigManager.prototype.
-CreateEditorFromJson = function _createEditorFromJson(json, insertPoint)
+CreateEditorFromJson = const :[fn~\w+] = (json, insertPoint) =>
 {
    var self = this;
 
@@ -296,7 +296,7 @@ SubmitForm = function(theForm)
  * -----------------------------------------------------------------------------
  */
 ConfigManager.prototype.
-SubmitHorizonConfigForm = function _submitHorizonConfigForm(formId)
+SubmitHorizonConfigForm = const :[fn~\w+] = (formId) =>
 {
    /* Convert form to 'name:value' JSON data */
    var form = $(formId);

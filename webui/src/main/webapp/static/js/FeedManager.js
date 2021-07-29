@@ -24,7 +24,7 @@
  * with feeds.
  * -----------------------------------------------------------------------------
  */
-function FeedManager(table, feedId)
+const :[fn~\w+] = (table, feedId) =>
 {
    if (table) {
       if (feedId) {
@@ -79,7 +79,7 @@ FeedManager.prototype = new AbstractManager('Feeds');
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-UpdateFeeds = function _UpdateFeeds(refreshInterval)
+UpdateFeeds = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       dataHandler: this.createRows,
@@ -128,7 +128,7 @@ GetFeedAndPopulateForm = function(feedId)
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-PopulateEditForm = function _PopulateEditForm(feed)
+PopulateEditForm = const :[fn~\w+] = (feed) =>
 {
    $('[name="name"]').val(feed.name);
    $('[name="url"]').val(feed.url);
@@ -197,7 +197,7 @@ PopulateEditForm = function _PopulateEditForm(feed)
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-DeleteSelectedFeeds = function _DeleteSelectedFeeds()
+DeleteSelectedFeeds = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -224,7 +224,7 @@ DeleteSelectedFeeds = function _DeleteSelectedFeeds()
          method: 'DELETE',
          url: '/api/feeds/' + feeds[i].id,
 
-         error: function _onError(jqXHR, textStatus, errorThrown) {
+         error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
             /**
              * FIXME: Relying on HTTP 403 forbidden for a specific error message is ugly.
              */
@@ -262,7 +262,7 @@ DeleteSelectedFeeds = function _DeleteSelectedFeeds()
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-ResetSelectedFeeds = function _ResetSelectedFeeds()
+ResetSelectedFeeds = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -306,7 +306,7 @@ ResetSelectedFeeds = function _ResetSelectedFeeds()
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-ScanSelectedFeeds = function _ScanSelectedFeeds()
+ScanSelectedFeeds = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -363,7 +363,7 @@ ScanSelectedFeeds = function _ScanSelectedFeeds()
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-SubmitFeedForm = function _submitFeedForm(form)
+SubmitFeedForm = const :[fn~\w+] = (form) =>
 {
    var json = AfSerializeForm(form);
    if (!json.name) {
@@ -383,7 +383,7 @@ SubmitFeedForm = function _submitFeedForm(form)
       url: url,
       data: json,
 
-      error: function _onError(jqXHR, textStatus, errorThrown) {
+      error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
          AfError('Error', 'Failed to save the feed: ' + jqXHR.responseText);
       },
 
@@ -412,7 +412,7 @@ SubmitFeedForm = function _submitFeedForm(form)
  * -----------------------------------------------------------------------------
  */
 FeedManager.prototype.
-createRows = function _createRows(self, jsonData, args)
+createRows = const :[fn~\w+] = (self, jsonData, args) =>
 {
    var feeds = jsonData;
 

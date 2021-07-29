@@ -24,7 +24,7 @@
  * with the inventory.
  * -----------------------------------------------------------------------------
  */
-function InventoryManager()
+const :[fn~\w+] = () =>
 {
    trees = new Array();
 }
@@ -42,16 +42,16 @@ InventoryManager.prototype = new AbstractManager('Inventory');
  * -----------------------------------------------------------------------------
  */
 InventoryManager.prototype.
-PopulateInventoryTree = function _populateInventoryTree(
+PopulateInventoryTree = const :[fn~\w+] = (
       treeDiv,
-      refreshInterval)
+      refreshInterval) =>
 {
    var self = this;
 
    AfAjax({
       url: '/api/inventory',
       method: 'GET',
-      success: function _populateInvTreeSuccess(data) {
+      success: const :[fn~\w+] = (data) => {
          // Create inventory tree...
          self.createTree(treeDiv, data);
 
@@ -65,7 +65,7 @@ PopulateInventoryTree = function _populateInventoryTree(
                   self);
          }
       },
-      error: function _populateInvTreeError(jqXHR, textStatus, errorThrown) {
+      error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
          // Failed to connect: try again in 5 seconds
          AfLog("Inventory update failed! Retrying in 5 seconds");
          window.setTimeout(

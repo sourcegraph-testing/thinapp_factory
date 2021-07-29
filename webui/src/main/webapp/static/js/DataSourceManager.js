@@ -26,7 +26,7 @@
  * TODO: remove this once we remove the old UI
  * -----------------------------------------------------------------------------
  */
-function DataSourceManager(table)
+const :[fn~\w+] = (table) =>
 {
    this.sourcesRefreshUrl = '/api/sources?sort=true';
    if (table) {
@@ -62,7 +62,7 @@ DataSourceManager.prototype = new AbstractManager('DataSources');
  * -----------------------------------------------------------------------------
  */
 DataSourceManager.prototype.
-UpdateDataSources = function _UpdateDataSources(refreshInterval)
+UpdateDataSources = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       dataHandler: this.createRows,
@@ -84,7 +84,7 @@ UpdateDataSources = function _UpdateDataSources(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 DataSourceManager.prototype.
-DeleteSelectedDataSources = function _DeleteSelectedDataSources()
+DeleteSelectedDataSources = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -129,7 +129,7 @@ DeleteSelectedDataSources = function _DeleteSelectedDataSources()
             AfStartPleaseWaitT('M.DATA_SOURCES.DELETING');
          },
 
-         error: function _onError(jqXHR, textStatus, errorThrown) {
+         error: const :[fn~\w+] = (jqXHR, textStatus, errorThrown) => {
             AfError('Error', 'Failed to delete data source: ' + errorThrown);
          },
 
@@ -158,7 +158,7 @@ DeleteSelectedDataSources = function _DeleteSelectedDataSources()
  * -----------------------------------------------------------------------------
  */
 DataSourceManager.prototype.
-ResetSelectedDataSources = function _ResetSelectedDataSources()
+ResetSelectedDataSources = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -212,7 +212,7 @@ ResetSelectedDataSources = function _ResetSelectedDataSources()
  * -----------------------------------------------------------------------------
  */
 DataSourceManager.prototype.
-ScanSelectedDataSources = function _ScanSelectedDataSources()
+ScanSelectedDataSources = const :[fn~\w+] = () =>
 {
    var self = this;
 
@@ -288,7 +288,7 @@ ScanSelectedDataSources = function _ScanSelectedDataSources()
  * -----------------------------------------------------------------------------
  */
 DataSourceManager.prototype.
-createRows = function _createRows(self, jsonData, args)
+createRows = const :[fn~\w+] = (self, jsonData, args) =>
 {
    var sources = jsonData;
 

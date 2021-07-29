@@ -26,7 +26,7 @@
  */
 RecipeBasicEditor.prototype = new AbstractSettingsEditor();
 RecipeBasicEditor.prototype.constructor = RecipeBasicEditor;
-function RecipeBasicEditor(tab, changeMarker)
+const :[fn~\w+] = (tab, changeMarker) =>
 {
    this.changeMarker = changeMarker;
 
@@ -45,7 +45,7 @@ function RecipeBasicEditor(tab, changeMarker)
  * -----------------------------------------------------------------------------
  */
 RecipeBasicEditor.prototype.
-Serialize = function _serialize()
+Serialize = const :[fn~\w+] = () =>
 {
    var json = this.stackEditor.Serialize();
 
@@ -70,7 +70,7 @@ Serialize = function _serialize()
  * -----------------------------------------------------------------------------
  */
 RecipeBasicEditor.prototype.
-PopulateRecipe = function _populateRecipe(recipe, readOnly)
+PopulateRecipe = const :[fn~\w+] = (recipe, readOnly) =>
 {
    var self = this;
 
@@ -231,7 +231,7 @@ AddAppliesToGroup = function(app)
  * -----------------------------------------------------------------------------
  */
 RecipeBasicEditor.prototype.
-ConfirmDeleteAppliesTo = function _confirmDelete()
+ConfirmDeleteAppliesTo = const :[fn~\w+] = () =>
 {
    /* Confirm delete */
    if (!AfConfirm(

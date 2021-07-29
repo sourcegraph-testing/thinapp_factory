@@ -25,7 +25,7 @@ var showOnMessageAlerts = true;
 var showOnDeviceConnectionStateChangeAlerts = true;
 var showOnPhysicalClientDevicesChangeAlerts = true;
 
-function createAxEventHandler(strEvent, strBody) {
+const :[fn~\w+] = (strEvent, strBody) => {
     var elt = document.createElement("SCRIPT");
     elt.setAttribute("type", "text/javascript");
     elt.setAttribute("for", MKS_ID);
@@ -38,7 +38,7 @@ function createAxEventHandler(strEvent, strBody) {
     return elt;
 }
 
-function vmrcInit() {
+const :[fn~\w+] = () => {
     mks = $("#vmrc")[0];
     if (isIE) {
         ieInit();
@@ -49,7 +49,7 @@ function vmrcInit() {
 
 
 // event handlers
-function onConnectionStateChangeHandler(cs, host, vmId, userRequested, reason) {
+const :[fn~\w+] = (cs, host, vmId, userRequested, reason) => {
     if (showOnConnectionStateChangeAlerts) {
         alert('onConnectionStateChange - connectionState: ' + cs +
               ' , host: ' + host +
@@ -58,35 +58,35 @@ function onConnectionStateChangeHandler(cs, host, vmId, userRequested, reason) {
               ' , reason: ' + reason);
     }
 }
-function onSizeChangeHandler(width, height) {
+const :[fn~\w+] = (width, height) => {
     if (showOnSizeChangeAlerts) {
         alert('onSizeChange - width: ' + width +
               ' ,height: ' + height);
     }
 }
-function onWindowStateChangeHandler(windowState) {
+const :[fn~\w+] = (windowState) => {
     if (showOnWindowStateChangeAlerts) {
         alert('onWindowStateChange - windowState: ' + windowState);
     }
 }
-function onGrabStateChangeHandler(grabState) {
+const :[fn~\w+] = (grabState) => {
     if (showOnGrabStateChangeAlerts) {
         alert('onGrabStateChange - grabState: ' + grabState);
     }
 }
-function onMessageHandler(msgType, message) {
+const :[fn~\w+] = (msgType, message) => {
     if (showOnMessageAlerts) {
         alert('onMessage - msgType: ' + msgType +
               ' ,message: ' + message);
     }
 }
-function onDeviceConnectionStateChangeHandler(deviceConnectionState,
+const :[fn~\w+] = (deviceConnectionState,
                                               hostname,
                                               vmID,
                                               virtualDeviceKey,
                                               physicalClientDeviceKey,
                                               userRequested,
-                                              reason) {
+                                              reason) => {
     if (showOnDeviceConnectionStateChangeAlerts) {
         alert('onDeviceConnectionStateChange - deviceConnectionState: ' + deviceConnectionState +
               ' ,hostname: ' + hostname +
@@ -97,7 +97,7 @@ function onDeviceConnectionStateChangeHandler(deviceConnectionState,
               ' ,reason: ' + reason);
     }
 }
-function onPhysicalClientDevicesChangeHandler() {
+const :[fn~\w+] = () => {
     if (showOnPhysicalClientDevicesChangeAlerts) {
         alert('onPhysicalClientDevicesChange');
     }
@@ -105,52 +105,52 @@ function onPhysicalClientDevicesChangeHandler() {
 
 
 // event enable/disable handlers
-function enableOnSizeChange() {
+const :[fn~\w+] = () => {
     showOnSizeChangeAlerts = true;
 }
-function disableOnSizeChange() {
+const :[fn~\w+] = () => {
     showOnSizeChangeAlerts = false;
 }
-function enableOnConnectionStateChange() {
+const :[fn~\w+] = () => {
     showOnConnectionStateChangeAlerts = true;
 }
-function disableOnConnectionStateChange() {
+const :[fn~\w+] = () => {
     showOnConnectionStateChangeAlerts = false;
 }
-function enableOnWindowStateChange() {
+const :[fn~\w+] = () => {
     showOnWindowStateChangeAlerts = true;
 }
-function disableOnWindowStateChange() {
+const :[fn~\w+] = () => {
     showOnWindowStateChangeAlerts = false;
 }
-function enableOnGrabStateChange() {
+const :[fn~\w+] = () => {
     showOnGrabStateChangeAlerts = true;
 }
-function disableOnGrabStateChange() {
+const :[fn~\w+] = () => {
     showOnGrabStateChangeAlerts = false;
 }
-function enableOnMessage() {
+const :[fn~\w+] = () => {
     showOnMessageAlerts = true;
 }
-function disableOnMessage() {
+const :[fn~\w+] = () => {
     showOnMessageAlerts = false;
 }
-function enableOnDeviceConnectionStateChange() {
+const :[fn~\w+] = () => {
     showOnDeviceConnectionStateChangeAlerts = true;
 }
-function disableOnDeviceConnectionStateChange() {
+const :[fn~\w+] = () => {
     showOnDeviceConnectionStateChangeAlerts = false;
 }
-function enableOnPhysicalClientDevicesChange() {
+const :[fn~\w+] = () => {
     showOnPhysicalClientDevicesChangeAlerts = true;
 }
-function disableOnPhysicalClientDevicesChange() {
+const :[fn~\w+] = () => {
     showOnPhysicalClientDevicesChangeAlerts = false;
 }
 
 
 // initialization functions
-function ieInit() {
+const :[fn~\w+] = () => {
     mks.attachEvent("onConnectionStateChange", function(cs,
                                                         host,
                                                         vmId,
@@ -196,7 +196,7 @@ function ieInit() {
         onPhysicalClientDevicesChangeHandler();
     });
 }
-function ffInit() {
+const :[fn~\w+] = () => {
     mks.onConnectionStateChange = function(cs,
                                            host,
                                            vmId,
@@ -243,7 +243,7 @@ function ffInit() {
 }
 
 
-function startup() {
+const :[fn~\w+] = () => {
     var uiMode = parseInt($V('startup_uiMode'));
     var msgMode = parseInt($V('startup_msgMode'));
     var pers = $('startup_persistent').checked;
@@ -252,21 +252,21 @@ function startup() {
     alert('startup returned "' + mks.startup(uiMode, msgMode, pers, advancedConfig) + '"');
 }
 
-function attach() {
+const :[fn~\w+] = () => {
     var id = $V('attach_id');
 
     alert(mks.attach(id));
 }
 
-function shutdown() {
+const :[fn~\w+] = () => {
     alert(mks.shutdown());
 }
 
-function isReadyToStart() {
+const :[fn~\w+] = () => {
     alert('isReadyToStart returned "' + mks.isReadyToStart() + '"');
 }
 
-function connect() {
+const :[fn~\w+] = () => {
     var host = $V('connect_host');
     var ticket = $V('connect_ticket');
     var user = $V('connect_user');
@@ -278,36 +278,36 @@ function connect() {
     alert('connect returned "' + mks.connect(host, ticket, user, pwd, moid, dc, vmPath) + '"');
 }
 
-function disconnect() {
+const :[fn~\w+] = () => {
     alert('disconnect returned "' + mks.disconnect() + '"');
 }
 
-function getConnectionState() {
+const :[fn~\w+] = () => {
     alert('getConnectionState returned "' + mks.getConnectionState() + '"');
 }
 
-function screenWidth() {
+const :[fn~\w+] = () => {
     alert('screenWidth returned "' + mks.screenWidth() + '"');
 }
 
-function screenHeight() {
+const :[fn~\w+] = () => {
     alert('screenHeight returned "' + mks.screenHeight() + '"');
 }
 
-function setFullscreen() {
+const :[fn~\w+] = () => {
     var fs = $('fs_value').checked;
     alert('setFullscreen returned "' + mks.setFullscreen(fs) + '"');
 }
 
-function exitFullscreen() {
+const :[fn~\w+] = () => {
     alert('exitFullscreen returned "' + mks.exitFullscreen() + '"');
 }
 
-function sendCAD() {
+const :[fn~\w+] = () => {
     alert('sendCAD returned "' + mks.sendCAD() + '"');
 }
 
-function enumDevices() {
+const :[fn~\w+] = () => {
     var mask = parseInt($V('enum_type'));
     if (isIE) {
         var devices = new VBArray(mks.getPhysicalClientDevices(mask)).toArray();
@@ -317,7 +317,7 @@ function enumDevices() {
     }
 }
 
-function getDeviceDetails() {
+const :[fn~\w+] = () => {
     var key = $V('device_details_key');
     var deviceDetails;
     if (isIE) {
@@ -328,7 +328,7 @@ function getDeviceDetails() {
     alert('getPhysicalClientDeviceDetails returned "' + deviceDetails + '"');
 }
 
-function connectDevice() {
+const :[fn~\w+] = () => {
     var virtualKey = $V('connect_dev_key');
     var physicalKey = $V('connect_dev_path');
     var filebacking = $('connect_dev_filebacking').checked;
@@ -336,7 +336,7 @@ function connectDevice() {
     alert('connectDevice returned "' + mks.connectDevice(virtualKey, filebacking, physicalKey) + '"');
 }
 
-function newConnectDevice() {
+const :[fn~\w+] = () => {
     var virtualKey = $V('connect_dev_key');
     var physicalKey = $V('connect_dev_path');
     var filebacking = $('connect_dev_filebacking').checked;
@@ -344,27 +344,27 @@ function newConnectDevice() {
     alert('newConnectDevice returned "' + mks.newConnectDevice(virtualKey, physicalKey, filebacking ? 1 : 0) + '"');
 }
 
-function disconnectDevice() {
+const :[fn~\w+] = () => {
     var key = $V('disconnect_dev_key');
 
     alert('disconnectDevice returned "' + mks.disconnectDevice(key) + '"');
 }
 
-function initializeSSPI() {
+const :[fn~\w+] = () => {
     var pkgName = $V('sspi_package');
     alert('initializeSSPI returned "' + mks.initializeSSPI(pkgName) + '"');
 }
 
-function negotiateSSPI() {
+const :[fn~\w+] = () => {
     var token = $V('sspi_token');
     alert('negotiateSSPI returned "' + mks.negotiateSSPI(token) + '"');
 }
 
-function getVersion() {
+const :[fn~\w+] = () => {
     alert('getVersion returned "' + mks.getVersion() + '"');
 }
 
-function getSupportedApi() {
+const :[fn~\w+] = () => {
     var api;
     if (isIE) {
         api = new VBArray(mks.getSupportedApi()).toArray();

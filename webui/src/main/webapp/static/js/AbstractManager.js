@@ -23,7 +23,7 @@
  * Superclass for all the "Manager" classes used by AppFactory.
  * -----------------------------------------------------------------------------
  */
-function AbstractManager(label) {
+const :[fn~\w+] = (label) => {
     "use strict";
 
     this.pendingAjax = [];

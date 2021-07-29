@@ -23,7 +23,7 @@
  * A "class" that encapsulates all the methods for dealing with image images.
  * -----------------------------------------------------------------------------
  */
-function VmImageManager(cloneSupported, table, status)
+const :[fn~\w+] = (cloneSupported, table, status) =>
 {
    this.refreshUrl = '/api/workpools/image';
 
@@ -47,7 +47,7 @@ VmImageManager.prototype = new AbstractManager('Workpool Image');
  * -----------------------------------------------------------------------------
  */
 VmImageManager.prototype.
-UpdateImage = function _updateImage(refreshInterval)
+UpdateImage = const :[fn~\w+] = (refreshInterval) =>
 {
    this.UpdateDataTable({
       table: this.tableWrapper.dataTable,
@@ -72,7 +72,7 @@ UpdateImage = function _updateImage(refreshInterval)
  * -----------------------------------------------------------------------------
  */
 VmImageManager.prototype.
-InitDeleteSelectedImage = function _initDeleteSelectedImage(popupHolder)
+InitDeleteSelectedImage = const :[fn~\w+] = (popupHolder) =>
 {
    var images = this.tableWrapper.GetSelectedRowData();
 
@@ -152,9 +152,9 @@ InitDeleteSelectedImage = function _initDeleteSelectedImage(popupHolder)
  * -----------------------------------------------------------------------------
  */
 VmImageManager.prototype.
-endDeleteImagePopup = function _endDeleteImagePopup(
+endDeleteImagePopup = const :[fn~\w+] = (
       popupHolder,
-      dataTableHolder)
+      dataTableHolder) =>
 {
    dataTableHolder.dataTable().fnDestroy();
    popupHolder.dialog('destroy');
@@ -174,7 +174,7 @@ endDeleteImagePopup = function _endDeleteImagePopup(
  * -----------------------------------------------------------------------------
  */
 VmImageManager.prototype.
-deleteSelectedImage = function _deleteSelectedImage(dialogDiv, dataTableDiv)
+deleteSelectedImage = const :[fn~\w+] = (dialogDiv, dataTableDiv) =>
 {
    var self = this;
    var images = this.tableWrapper.GetSelectedRowData();
@@ -239,7 +239,7 @@ refresh = function() {
  * -----------------------------------------------------------------------------
  */
 VmImageManager.prototype.
-createRows = function _createRows(self, jsonData, options)
+createRows = const :[fn~\w+] = (self, jsonData, options) =>
 {
    // Remove all data rows from the table
    self.tableWrapper.ClearTable();
